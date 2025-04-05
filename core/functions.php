@@ -1,8 +1,9 @@
 <?php
 /************************* golbal variables*************************** */
 $json_file_checkout=realpath(__DIR__ . "/../data/checkout.json");
-$json_file_user=realpath(__DIR__ . "/../data/user.json");
 
+$json_file_user=realpath(__DIR__ . "/../data/user.json");
+// print_r($json_file_user); exit;
 /*********************************** message function ******************************************** */
 function set_messages($type_of_alert,$message_of_error)
 {
@@ -77,7 +78,7 @@ function register_user($name,$email,$password){
     // $data= get_data_from_json($GLOBALS['json_file_user']);
 
     $hashpassowrd=password_hash($password,PASSWORD_DEFAULT);
-    $id = empty($data) ? 1 : (int) max(array_column($data,'id')) + 1 ;
+    $id = empty($data) ? 1 : (int) max(array_column($users,'id')) + 1 ;
 
     $data[] =
     [
@@ -92,11 +93,16 @@ function register_user($name,$email,$password){
     $users[] = $data;
     file_put_contents($user_file, json_encode($users, JSON_PRETTY_PRINT));
 
-
-        create_user_session([
-            'name'=>$name,
-            'email'=>$email,
-        ]);
+   
+    $_SESSION['user'] = [
+        'name' => $name,
+        'email' => $email
+    ];
+    // return true;
+    //     create_user_session([
+    //         'name'=>$name,
+    //         'email'=>$email,
+    //     ]);
     
     return true;
 }

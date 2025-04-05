@@ -1,7 +1,9 @@
 <?php
 session_start();
-include_once "../user/core/validations.php";
-include_once "../handler/core/functions.php";
+
+include_once "../../core/validations.php"; 
+include_once "../../core/functions.php";   
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
@@ -14,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($error)) 
     {
         set_messages('danger', $error);
-        header("Location: ../register.php");
+        header("Location: ../user/register.php");
         exit;
     }
 
@@ -25,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }else{
         set_messages('danger',"Fail Reqister User");
-        header("Location: ../register.php");
+        header("Location: ../user/register.php");
         exit;
     }
 }
