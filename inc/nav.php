@@ -36,12 +36,4 @@
                 </div>
             </div>
         </nav>
-        <?php require_once "./core/functions.php" ?>
-    <div class="container content mt-4">
-        <div class="text-center">
-            <?php
-           show_message() ;
-        //    exit;
-                ?>
-        </div>
-    </div>
+      

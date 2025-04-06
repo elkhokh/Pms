@@ -1,8 +1,3 @@
-
-<?php 
-// session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,12 +16,21 @@
     </head>
     
     <body>
-  
+
         <!-- Navigation-->
+         
 <?php require_once('nav.php'); ?>
 <header class="bg-dark py-3">
+<?php
+session_start();
+include_once "core/functions.php";
+?>
+<div class="container">
+<?php show_message(); ?>
+</div>
     <div class="container px-3 px-lg-3 my-3">
         <div class="text-center text-white">
+ 
             <h1 class="display-3 fw-bolder">Shop in style</h1>
         </div>
         

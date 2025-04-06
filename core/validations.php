@@ -14,8 +14,10 @@ function valid_email($email)
 }
 // check validation salary
 
-function valid_phone($phone){
-    return (is_numeric($phone))?null:"can you enter your phone ture";}
+function valid_phone($phone)
+{
+    return (is_numeric($phone))?null:"can you enter your phone ture";
+}
 
     function valid_password($password) 
     {
@@ -27,7 +29,7 @@ function valid_phone($phone){
         switch ($password) {
             case !$uppercase:
                 return "Password must contain at least one uppercase letter";
-            case !$lowercase:
+            case !$lowercase: 
                 return "Password must contain at least one lowercase letter";
             case !$number:
                 return "Password must contain at least one number";
@@ -37,47 +39,48 @@ function valid_phone($phone){
                 return null;
         }
     }
-
-    function check_confirm_password_valid($password,$confirm_password)
+   
+    function check_confirm_password_valid($password,$password_confirm)
     {
-        return ($password===$confirm_password)? null :"confirm Password is NOT the same Password";
+        return ($password===$password_confirm)? null :"confirm Password is NOT the same Password";
     }
 
 /********************************validation of register function *********************************** */
-function valid_register($name,$email,$password,$confirm_password){
+function valid_register($name,$email,$password,$password_confirm){
             
     $data_reg=[
         'name'=>htmlspecialchars($name),
         'email'=>htmlspecialchars($email),
         'password'=>htmlspecialchars($password),
-        'confirm_password'=>htmlspecialchars($confirm_password),
+        'password_confirm'=>htmlspecialchars($password_confirm),
 ];
 
     foreach($data_reg as $key =>$value)
     {
-        if($type_of_error=valid_data_require($value,$key)){
-            return $type_of_error;
+        if(valid_data_require($value,$key)){
+            return $type_of_error = valid_data_require($value,$key);
         }
     }
+    
 
-if($type_of_error   =  valid_email($email))
+if( valid_email($email))
         {
-    return $type_of_error; 
+    return $type_of_error=valid_email($email); 
     }
 
-if($type_of_error   =    valid_password($password))
+if(   valid_password($password))
     {
-    return $type_of_error;
+    return $type_of_error =valid_password($password);
     }
 
-if($type_of_error  =  check_confirm_password_valid($password,$confirm_password))
+if( check_confirm_password_valid($password,$password_confirm))
     {
-    return $type_of_error; 
+    return $type_of_error= check_confirm_password_valid($password,$password_confirm); 
     }
 
     return null; 
 }
-/************************************************************* */
+/**************************** login validation function ********************************* */
 
 
 

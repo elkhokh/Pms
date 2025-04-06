@@ -1,7 +1,6 @@
 <?php
 /************************* golbal variables*************************** */
 $json_file_checkout=realpath(__DIR__ . "/../data/checkout.json");
-
 $json_file_user=realpath(__DIR__ . "/../data/user.json");
 // print_r($json_file_user); exit;
 /*********************************** message function ******************************************** */
@@ -76,12 +75,11 @@ function register_user($name,$email,$password){
     }
 
     // $data= get_data_from_json($GLOBALS['json_file_user']);
+    $id = empty($users) ? 1 :  max(array_column($users,'id')) + 1 ;
 
     $hashpassowrd=password_hash($password,PASSWORD_DEFAULT);
-    $id = empty($data) ? 1 : (int) max(array_column($users,'id')) + 1 ;
 
-    $data[] =
-    [
+    $data =[
         'id'=>$id , 
         'name'=>$name,
         'email'=>$email,
@@ -91,6 +89,7 @@ function register_user($name,$email,$password){
         // set_data_in_json($data , $GLOBALS['json_file_user']);
 
     $users[] = $data;
+
     file_put_contents($user_file, json_encode($users, JSON_PRETTY_PRINT));
 
    
@@ -106,6 +105,8 @@ function register_user($name,$email,$password){
     
     return true;
 }
+
+
 /********************************************************************************************** */
 
 
