@@ -3,5 +3,5 @@
 session_start();
 session_unset();
 session_destroy();
-header('location: ../user/login.php');
+  print_r(header('location: ../../user/login.php'));
 exit;

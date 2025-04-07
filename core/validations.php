@@ -82,46 +82,26 @@ if( check_confirm_password_valid($password,$password_confirm))
 }
 /**************************** login validation function ********************************* */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //  
-// function valid_login($email,$password){
-//     $data_reg=[
-//         'email'=>$email,
-//         'password'=>$password,
-//     ];
-//     $type_of_error = [];
+function valid_login($email,$password){
+    $data_login=[
+        'email'=>$email,
+        'password'=>$password,
+    ];
     
-//     foreach($data_reg as $key =>$value){
-//         if($type_of_error==valid_data_require($value,$key)){
-//             return $type_of_error[] = 'data is required';}
-//     }
-    
-//     if($type_of_error == valid_email($email)){
-//         return $type_of_error[] = 'valid email, you hack me man !!';
-//     }
-    
-//         return !$type_of_error ? $data_reg : $type_of_error; 
-// }
-
+    foreach($data_login as $key =>$value)
+    {
+        if($type_of_error =valid_data_require($value,$key))
+        {
+            return $type_of_error ;
+        }
+    }
+    if($type_of_error = valid_email($email))
+    {
+        return $type_of_error;
+    }
+        return null; 
+}
+/************************************************************ */
 
 
 ?>

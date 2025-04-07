@@ -92,16 +92,15 @@ function register_user($name,$email,$password){
 
     file_put_contents($user_file, json_encode($users, JSON_PRETTY_PRINT));
 
-   
-    $_SESSION['user'] = [
-        'name' => $name,
-        'email' => $email
-    ];
+    // $_SESSION['user'] = [
+    //     'name' => $name,
+    //     'email' => $email
+    // ];
     // return true;
-    //     create_user_session([
-    //         'name'=>$name,
-    //         'email'=>$email,
-    //     ]);
+        create_user_session([
+            'name'=>$name,
+            'email'=>$email,
+        ]);
     
     return true;
 }
@@ -109,7 +108,31 @@ function register_user($name,$email,$password){
 
 /********************************************************************************************** */
 
+function login_user($email,$password){
+    
+    // $data= get_data_from_json($GLOBALS['json_file_user']);
+    // $users = is_array($data) ? $data : [];
+    $file = $GLOBALS['json_file_user'];
+    $users = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
 
+    if(!is_array($users)){
+        $users = [];
+    }
+
+    foreach($users as $user){
+
+        if($user['email']==$email && password_verify($password,$user['password'])){
+            create_user_session([
+                'email'=>$email,
+                'name'=>$user['name']
+            ]);
+            return true; 
+        }
+    }
+    return false;
+}
+
+/*********************************************************************** */
 
 
 

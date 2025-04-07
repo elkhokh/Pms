@@ -64,5 +64,23 @@
         "name": "vonuceg@mailinator.com",
         "email": "wicenani@mailinator.com",
         "password": "$2y$10$08Ai9HjZAC3d0swq10PB6esJbKFSzvVfXLV\/jNBIVKLIYizSXHBAu"
+    },
+    {
+        "id": 12,
+        "name": "danojecel@mailinator.com",
+        "email": "likapacyc@mailinator.com",
+        "password": "$2y$10$vUimOho\/DHQG5P5.3FnS3.3RJ27kCa7xMza3WectScQc9HpOx8mfS"
+    },
+    {
+        "id": 13,
+        "name": "mostafa ",
+        "email": "mostafa@gmail.com",
+        "password": "$2y$10$w37RksZOiPsrPyLBuO5UqOdwplgHdYeFHR0tqLub6BbZ40kVGV6KO"
+    },
+    {
+        "id": 14,
+        "name": "mostafa khalid",
+        "email": "mustafaelkhokhy@gmail.com",
+        "password": "$2y$10$Yw\/BKNKfcgje8Xz2hTYKmu2qlv79cqn98nHZGAu\/O0v6QkHqMNaea"
     }
 ]

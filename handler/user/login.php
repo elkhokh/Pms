@@ -5,25 +5,29 @@ include_once "../../core/validations.php";
 include_once "../../core/functions.php";
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = trim($_POST['password']);
+if($_SERVER['REQUEST_METHOD']=='POST'){
+    $email=$_POST['email'];
+    $password=trim($_POST['password']);
 
-    // $error = validateLogin($email, $password);
+$type_of_error=valid_login($email,$password);
 
-    // if(!empty($error)){
-    //     setMessages('danger',$error);
-    //     header("Location: ../form_employee.php");
-    //     exit;
-    // }
+if(is_array($type_of_error)){
     
-    // if(loginUser($email, $password)){
-    //     setMessages('success', "Login sucessfully");
-    //     header("Location: ../index.php");
-    //     exit;
-    // }else{
-    //     setMessages('danger',"Invaild email or password");
-    //     header("Location: ../login.php");
-    //     exit;
-    // }
+if(login_user($email,$password)){
+    set_messages('success',"Login successfully");
+    header("location: ../../index.php");
+    // echo "welldone";
+    exit;
+}}
+if(!empty($type_of_error)){
+set_messages('danger',$type_of_error);
+header('location: ../../index.php');
+exit;
+}
+
+else {
+    set_messages('danger',"fail Login try again !!");
+    header("location: ../../login.php");
+    exit;
+}
 }

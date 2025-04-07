@@ -1,3 +1,6 @@
+<?php  
+//  session_start();
+ ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#!">EraaSoft PMS</a>
@@ -8,30 +11,22 @@
                         <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                     </ul>
-                    <form class="d-flex" action="cart.php">
+                    <form class="d-flex" action="cart.php" method =" ">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button>
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-                    </ul>
-                    <?php 
-                    // if(isset($_SESSION['user'])): 
-                        ?>
-                <!-- <li class="nav-item"><a class="nav-link" href="handelers/logout_user.php">Logout</a></li> -->
-                <?php 
-                // else:
-                    ?>
+                    
+                    <?php  if(isset($_SESSION['user'])): ?>
+                <li class="nav-item"><a class="nav-link" href=<?php print_r("handler/user/logout.php") ;?>>Logout</a></li>
+                <?php else: ?>
 
-                <!-- <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
-                <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li> -->
-                <?php
-            //  endif;
-             ?>
-            
+                    <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                <?php endif; ?>
+                </ul>
                     </form>
                 </div>
             </div>
