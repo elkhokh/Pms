@@ -1,7 +1,6 @@
 <?php
-// session_start();
-
 session_start();
+
 include_once "../../core/validations.php";
 include_once "../../core/functions.php";
 

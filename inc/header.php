@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,7 +26,7 @@
     <div class="container px-3 px-lg-3 my-3">
         <div class="text-center text-white">
         <?php
-session_start();
+// session_start();
 include_once "core/functions.php";
 ?>
 <div class="container">

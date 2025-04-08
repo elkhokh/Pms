@@ -24,7 +24,7 @@
                             <td>Product 1</td>
                             <td>$9.99</td>
                             <td>
-                                <input type="number" value="1">
+                                <input type="number" name="" value="1">
                             </td>
                             <td>$9.99</td>
                             <td>

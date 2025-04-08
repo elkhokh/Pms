@@ -12,8 +12,8 @@ function set_messages($type_of_alert,$message_of_error)
         'type'=>$type_of_alert,
         'text'=>$message_of_error,
     ];
-
 }
+
 function show_message()
 {
     if(isset($_SESSION['message'])){
@@ -68,32 +68,23 @@ function set_data_in_json(array $data , $file = '')
 /****************************** register function ******************************** */
 
 function register_user($name,$email,$password){
-
     $user_file = $GLOBALS['json_file_user'];
     $users = file_exists($user_file) ? json_decode(file_get_contents($user_file), true) : [];
-
     if(!is_array($users)){
         $users = [];
     }
-
     // $data= get_data_from_json($GLOBALS['json_file_user']);
     $id = empty($users) ? 1 :  max(array_column($users,'id')) + 1 ;
-
-    $hashpassowrd=password_hash($password,PASSWORD_DEFAULT);
-
+    // $hashpassowrd=password_hash($password,PASSWORD_DEFAULT);
     $data =[
         'id'=>$id , 
         'name'=>$name,
         'email'=>$email,
-        'password'=>$hashpassowrd
+        'password'=>password_hash($password,PASSWORD_DEFAULT)
     ];
-    
         // set_data_in_json($data , $GLOBALS['json_file_user']);
-
     $users[] = $data;
-
     file_put_contents($user_file, json_encode($users, JSON_PRETTY_PRINT));
-
     $_SESSION['user'] = [
         'name' => $name,
         'email' => $email
@@ -103,13 +94,11 @@ function register_user($name,$email,$password){
         //     'name'=>$name,
         //     'email'=>$email,
         // ]);
-    
     return true;
 }
 
 /********************************************************************************************** */
 function login_user($email,$password){
-    
     // $data= get_data_from_json($GLOBALS['json_file_user']);
     // $users = is_array($data) ? $data : [];
     $file = $GLOBALS['json_file_user'];
@@ -140,17 +129,14 @@ function login_user($email,$password){
 
 /************************************ fucntion of contect us********************************** */
 function contect_from__user($name,$email,$message){
-
     $contect_file = $GLOBALS['json_file_contect_us'];
     $users = file_exists($contect_file) ? json_decode(file_get_contents($contect_file), true) : [];
-
-    if(!is_array($users)){
+    if(!is_array($users))
+    {
         $users = [];
     }
-
     // $data= get_data_from_json($GLOBALS['json_file_user']);
     $id = empty($users) ? 1 :  max(array_column($users,'id')) + 1 ;
-
     $data =[
         'id'=>$id , 
         'name'=>$name,
@@ -160,7 +146,6 @@ function contect_from__user($name,$email,$message){
         // set_data_in_json($data , $GLOBALS['json_file_user']);
     $users[] = $data;
     file_put_contents($contect_file, json_encode($users, JSON_PRETTY_PRINT));
-    
     return true;
 }
 

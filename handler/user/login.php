@@ -11,8 +11,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
 $type_of_error=valid_login($email,$password);
 
-if(!empty($type_of_error))
-{
+if(!empty($type_of_error)){
+// echo 'man what are you doing '; exit;
+
     set_messages('danger',$type_of_error);
     // header('location: ../../index.php');
     header('location: ../../login.php');
@@ -20,6 +21,8 @@ if(!empty($type_of_error))
     }
 if(login_user($email,$password))
 {
+        // echo 'man what are you doing '; exit;
+
     set_messages('success',"Login successfully");
     header("location: ../../index.php");
     // echo "welldone";
