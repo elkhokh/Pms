@@ -11,23 +11,23 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
 $type_of_error=valid_login($email,$password);
 
-if(is_array($type_of_error)){
-    
-if(login_user($email,$password)){
+if(!empty($type_of_error))
+{
+    set_messages('danger',$type_of_error);
+    // header('location: ../../index.php');
+    header('location: ../../login.php');
+    exit;
+    }
+if(login_user($email,$password))
+{
     set_messages('success',"Login successfully");
     header("location: ../../index.php");
     // echo "welldone";
     exit;
-}}
-if(!empty($type_of_error)){
-set_messages('danger',$type_of_error);
-header('location: ../../index.php');
-exit;
 }
-
 else {
     set_messages('danger',"fail Login try again !!");
     header("location: ../../login.php");
     exit;
-}
+    }
 }

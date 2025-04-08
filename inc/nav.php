@@ -11,7 +11,7 @@
                         <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                     </ul>
-                    <form class="d-flex" action="cart.php" method =" ">
+                    <form class="d-flex" action="cart.php" method ="POST">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
@@ -20,11 +20,22 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     
                     <?php  if(isset($_SESSION['user'])): ?>
-                <li class="nav-item"><a class="nav-link" href=<?php print_r("handler/user/logout.php") ;?>>Logout</a></li>
+                <li class="nav-item"><a class="nav-link" href="handler/user/logout.php">Logout</a></li>
                 <?php else: ?>
 
-                    <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li> -->
+                    <div class="dropdown ">
+  <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  Login
+  </button>
+  <ul class="dropdown-menu dropdown-menu">
+  <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+  </ul>
+</div>
+            
                 <?php endif; ?>
                 </ul>
                     </form>

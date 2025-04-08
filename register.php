@@ -1,12 +1,12 @@
 <?php 
 include "inc/header.php";
-
+// session_start();
 ?>
 
     </div>
-<h2>Register Form</h2>
-<section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
+
+<section class="py-5 ">
+    <div class="container px-4 px-lg-5 mt-5 ">
         <div class="row">
             <div class="col-8 mx-auto">
                 <form action="handler/user/register.php" method="POST" class="form border my-2 p-3">
@@ -27,7 +27,7 @@ include "inc/header.php";
                             <label for="">Confirm Password</label>
                             <input type="password" name="password_confirm" id="password_confrim" class="form-control">
                         </div>
-                        <div class="mb-3">
+                        <div class="d-grid gap-2 col-2 mx-auto ">
                             <input type="submit" value="Submit" id="submit" class="btn btn-success">
                         </div>
                     </div>
@@ -36,8 +36,5 @@ include "inc/header.php";
         </div>
     </div>
 </section>
-
-
-
 
 <?php include "inc/footer.php"; ?>

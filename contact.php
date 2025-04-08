@@ -7,19 +7,21 @@
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row">
             <div class="col-8 mx-auto">
-                <form action="" method="post" form border my-2 p-3">
+                <form action="handler/contect_us/create.php" method="post" form border my-2 p-3">
                     <div class="mb-3">
                         <div class="mb-3">
-                            <label for="">Name</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="">Email</label>
-                            <input type="email" name="" id="" class="form-control">
+                            <input type="email" name="email" id="email" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="">Message</label>
-                            <textarea name="" id="" class="form-control" rows="7"></textarea>
+                            <label for="message">Message</label>
+                    
+                            <!-- <input type="text" name="message" id="massage" class="form-control"> -->
+                            <textarea  name="message" id="message" class="form-control" rows="7"></textarea>
                         </div>
                         <div class="mb-3">
                             <input type="submit" value="Send" id="" class="btn btn-success">

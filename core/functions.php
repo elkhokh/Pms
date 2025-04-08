@@ -1,7 +1,9 @@
 <?php
+// session_start();
 /************************* golbal variables*************************** */
 $json_file_checkout=realpath(__DIR__ . "/../data/checkout.json");
 $json_file_user=realpath(__DIR__ . "/../data/user.json");
+$json_file_contect_us=realpath(__DIR__ . "/../data/contect_us.json");
 // print_r($json_file_user); exit;
 /*********************************** message function ******************************************** */
 function set_messages($type_of_alert,$message_of_error)
@@ -92,22 +94,20 @@ function register_user($name,$email,$password){
 
     file_put_contents($user_file, json_encode($users, JSON_PRETTY_PRINT));
 
-    // $_SESSION['user'] = [
-    //     'name' => $name,
-    //     'email' => $email
-    // ];
+    $_SESSION['user'] = [
+        'name' => $name,
+        'email' => $email
+    ];
     // return true;
-        create_user_session([
-            'name'=>$name,
-            'email'=>$email,
-        ]);
+        // create_user_session([
+        //     'name'=>$name,
+        //     'email'=>$email,
+        // ]);
     
     return true;
 }
 
-
 /********************************************************************************************** */
-
 function login_user($email,$password){
     
     // $data= get_data_from_json($GLOBALS['json_file_user']);
@@ -115,26 +115,56 @@ function login_user($email,$password){
     $file = $GLOBALS['json_file_user'];
     $users = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
 
-    if(!is_array($users)){
+    if(!is_array($users))
+    {
         $users = [];
     }
-
-    foreach($users as $user){
-
-        if($user['email']==$email && password_verify($password,$user['password'])){
-            create_user_session([
-                'email'=>$email,
-                'name'=>$user['name']
-            ]);
+    foreach($users as $user)
+    {
+        if($user['email'] == $email && password_verify($password,$user['password'])){
+            // create_user_session([
+            //     'email'=>$email,
+            //     'name'=>$user['name']
+            // ]);
+            // session_start();
+            $_SESSION['user'] = [
+                'name' => $user['name'],
+                'email' =>  $user['email']
+            ];
+            // print_r( $_SESSION['user']); exit;
             return true; 
         }
     }
     return false;
 }
 
-/*********************************************************************** */
+/************************************ fucntion of contect us********************************** */
+function contect_from__user($name,$email,$message){
 
+    $contect_file = $GLOBALS['json_file_contect_us'];
+    $users = file_exists($contect_file) ? json_decode(file_get_contents($contect_file), true) : [];
 
+    if(!is_array($users)){
+        $users = [];
+    }
+
+    // $data= get_data_from_json($GLOBALS['json_file_user']);
+    $id = empty($users) ? 1 :  max(array_column($users,'id')) + 1 ;
+
+    $data =[
+        'id'=>$id , 
+        'name'=>$name,
+        'email'=>$email,
+        'massage'=>$message
+    ];
+        // set_data_in_json($data , $GLOBALS['json_file_user']);
+    $users[] = $data;
+    file_put_contents($contect_file, json_encode($users, JSON_PRETTY_PRINT));
+    
+    return true;
+}
+
+/******************************************************** */
 
 
 
