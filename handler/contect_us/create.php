@@ -1,6 +1,6 @@
 <?php
 
-// session_start();
+session_start();
 include_once "../../core/validations.php";
 include_once "../../core/functions.php";
 
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    if (contect_from__user($name, $email, $message)) 
+    if (contect_from__user($name, $email, $message))
     {
         set_messages('success', "YOur Comment Add Successfull");
         header("Location: ../../index.php");

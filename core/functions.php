@@ -4,6 +4,8 @@
 $json_file_checkout=realpath(__DIR__ . "/../data/checkout.json");
 $json_file_user=realpath(__DIR__ . "/../data/user.json");
 $json_file_contect_us=realpath(__DIR__ . "/../data/contect_us.json");
+$json_file_product=realpath(__DIR__ . "/../data/product.json");
+$json_file_cart=realpath(__DIR__ . "/../data/cart.json");
 // print_r($json_file_user); exit;
 /*********************************** message function ******************************************** */
 function set_messages($type_of_alert,$message_of_error)
@@ -56,7 +58,7 @@ function set_data_in_json(array $data , $file = '')
 {
     if(!$file)
     {
-        $file = $GLOBALS['json_file'];
+        $file = $GLOBALS['json_file_product'];
     }
     if(!file_exists($file))
     {
@@ -149,7 +151,80 @@ function contect_from__user($name,$email,$message){
     return true;
 }
 
-/******************************************************** */
+/************************************** function add to cart****************** */
+function add_to_cart($product_id, $quantity = 1) {
+    $products = get_data_from_json($GLOBALS['json_file_products']);
+    $product = null;
+    foreach ($products as $p) 
+    {
+        if ($p['id'] == $product_id) {
+            $product = $p;
+            break;
+        }
+    }
+    if (!$product) 
+    {
+        return false;
+    }
+
+    if (!isset($_SESSION['cart'])) 
+    {
+        $_SESSION['cart'] = [];
+    }
+
+    $found = false;
+    foreach ($_SESSION['cart'] as &$item)
+     {
+        if ($item['id'] == $product_id) {
+            $item['quantity'] += $quantity;
+            $found = true;
+            break;
+        }
+    }
+
+    if (!$found) 
+    {
+        $_SESSION['cart'][] = [
+            'id' => $product['id'],
+            'name' => $product['name'],
+            'price' => $product['price'],
+            'quantity' => $quantity
+        ];
+    }
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

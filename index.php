@@ -1,112 +1,91 @@
-<?php require_once ('inc/header.php'); ?>
+<?php 
+require_once('inc/header.php');
+ // to get data from json_file_product
+$products = get_data_from_json($GLOBALS['json_file_product']);
+// <?php show_message(); 
+?>
 
-        <!-- Section-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                 
+
+<!------------------------------------------------------------- Section -------------------------------------------------->
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+            <?php 
+            //to check you have product in json file
+            if (!empty($products)): 
+            ?>
+                <?php
+                // loop in data to get and make operation
+                foreach ($products as $product): 
+                ?>
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
+
+<!----------------------------------------- Sale badge -------------------------------------------------------------->
+                            <?php
+                            // to check first price to compare
+                            if ($product['price'] < $product['original_price']): ?>
+                                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <?php endif; ?>
+
+
+<!-------------------------- Product image and get the auto image from file --------------------------------------->
+                            <img class="card-img-top" src="<?= $product["image"] ?>" alt="..." />
+
+<!------------------------------------ Product details ------------------------------------------------->
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Special Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
+                                    <!-- Product name -->
+                                    <h5 class="fw-bolder"><?= $product['name']; ?></h5>
+
+<!------------------------- Product reviews  take review from json ------------------------------------------------->
+                                    <?php if ($product['rating'] > 0): ?>
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <?php 
+                                            // flex rating you chang from product json 
+                                            for ($i = 0; $i < $product['rating']; $i++): 
+                                            ?>
+                                                <div class="bi-star-fill"></div>
+                                            <?php endfor; ?>
+                                        </div>
+                                    <?php endif; ?>
+
+<!----------------------------------------------- Product price ------------------------------------------->
+                                    <?php if ($product['price'] < $product['original_price']): ?>
+                                        <span class="text-muted text-decoration-line-through">$<?php echo number_format($product['original_price'], 2); ?></span>
+                                    <?php endif; ?>
+                                    $<?php 
+                                    // to make number formate like 2000,000,000
+                                    // echo number_format("1000000")."<br>";
+                                    // echo number_format("1000000",2)."<br>";
+                                    // echo number_format("1000000",2,",",".");                                    
+                                    echo number_format($product['price'], 2);
+                                    ?>
+                                </div>
+                            </div>
+
+
+<!---------------------------------- Product actions ----------------------------------------->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <form method="POST" action="handler/cart/create.php">
+                                    <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-outline-dark mt-auto">Add to cart</button>
                                     </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$20.00</span>
-                                    $18.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Popular Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    $40.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Fancy Product</h5>
-                                    <!-- Product price-->
-                                    $120.00 - $280.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-            
-                </div>
-            </div>
-        </section>
-<?php require_once ('inc/footer.php'); ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>No products available.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+
+
+<?php require_once('inc/footer.php'); ?>

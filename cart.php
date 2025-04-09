@@ -24,37 +24,14 @@
                             <td>Product 1</td>
                             <td>$9.99</td>
                             <td>
-                                <input type="number" name="" value="1">
+                                <input name="number" type="number" value="0">
                             </td>
                             <td>$9.99</td>
                             <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <a href="#" class="btn btn-outline-danger">Delete</a>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Product 2</td>
-                            <td>$19.99</td>
-                            <td>
-                                <input type="number" value="2">
-                            </td>
-                            <td>$9.99</td>
-                            <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Product 2</td>
-                            <td>$19.99</td>
-                            <td>
-                                <input type="number" value="2">
-                            </td>
-                            <td>$9.99</td>
-                            <td>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
+
                         <tr>
                             <td colspan="2">
                                 Tatal Price
@@ -63,7 +40,7 @@
                                 <h3>3325 $</h3>
                             </td>
                             <td>
-                                <a href="checkout.php" class="btn btn-primary">Checkout</a>
+                                <a href="checkout.php" class="btn btn-outline-success">Checkout</a>
                             </td>
                         </tr>
                 </table>
@@ -71,4 +48,6 @@
         </div>
     </div>
 </section>
+
+
 <?php require_once('inc/footer.php'); ?>

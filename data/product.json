@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Pro-max",
+        "price": 20000.00,
+        "original_price": 25000.00,
+        "rating": 5,
+        "image": "assets/pic/image6.png"
+    },
+    {
+        "id": 2,
+        "name": "Camera",
+        "price": 4000.00,
+        "original_price": 4000.00,
+        "rating": 5,
+        "image": "assets/pic/image2.png"
+    },
+    {
+        "id": 3,
+        "name": "Smart Watch",
+        "price": 2500.00,
+        "original_price": 5000.00,
+        "rating": 0,
+        "image": "assets/pic/image.png"
+    },
+    {
+        "id": 4,
+        "name": "Wirelss Mouse",
+        "price": 2800.00,
+        "original_price": 3000.00,
+        "rating": 4,
+        "image": "assets/pic/image5.png"
+    },
+    {
+        "id": 5,
+        "name": "Head Phone",
+        "price": 180.00,
+        "original_price": 200.00,
+        "rating": 3,
+        "image": "assets/pic/image1.png"
+    },
+    {
+        "id": 6,
+        "name": "Wirelss Mouse",
+        "price": 400.00,
+        "original_price": 600.00,
+        "rating": 5,
+        "image": "assets/pic/image4.png"
+    },
+    {
+        "id": 7,
+        "name": "Head Phone",
+        "price": 180.00,
+        "original_price": 200.00,
+        "rating": 5,
+        "image": "assets/pic/image1.png"
+    },
+    {
+        "id": 8,
+        "name": "Head phone",
+        "price": 880.00,
+        "original_price": 1020.00,
+        "rating": 4,
+        "image": "assets/pic/image7.png"
+    }
+]

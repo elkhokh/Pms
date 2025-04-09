@@ -32,4 +32,6 @@
         </div>
     </div>
 </section>
+
+
 <?php require_once('inc/footer.php'); ?>
