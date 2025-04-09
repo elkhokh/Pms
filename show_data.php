@@ -1,16 +1,20 @@
 <?php require_once('inc/header.php'); ?>
-
+<!-- <button type="button" class="btn btn-primary position-relative">
+  Inbox
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    99+
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button> -->
 <!-- Section -->
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row">
             <div class="col-12">
                 <?php if (empty($_SESSION['cart'])): ?>
-                    <div class="alert alert-warning" role="alert">
-                    Your cart is empty Return to <a href="index.php" class="alert-link">Home</a> 
-</div>
+                    <p>Your cart is empty.</p>
                 <?php else: ?>
-                    <table class="table table-bordered border-primary">
+                    <table class="table table-success table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -44,8 +48,8 @@
                                             <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
                                             <input type="number" name="quantity" value="<?php echo $item['quantity']; ?>" min="1" style="width: 60px;">
                                             <input type="hidden" name="update_quantity" value="1">
-                                            <button type="submit" class="badge rounded-pill text-bg-success">Update</button>
-                                    
+                                            <button type="submit" class="btn btn-sm  btn-outline-success">Update</button>
+                                        </form>
                                     </td>
                                     <td>$<?php echo number_format($item_total, 2); ?></td>
                                     <td>

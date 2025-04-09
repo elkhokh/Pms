@@ -20,7 +20,7 @@
         "name": "Smart Watch",
         "price": 2500.00,
         "original_price": 5000.00,
-        "rating": 0,
+        "rating": 3,
         "image": "assets/pic/image.png"
     },
     {
@@ -41,7 +41,7 @@
     },
     {
         "id": 6,
-        "name": "Wirelss Mouse",
+        "name": "Wirelss Mouse Pro",
         "price": 400.00,
         "original_price": 600.00,
         "rating": 5,
@@ -49,15 +49,15 @@
     },
     {
         "id": 7,
-        "name": "Head Phone",
+        "name": "Head Phone PRO",
         "price": 180.00,
         "original_price": 200.00,
-        "rating": 5,
+        "rating": 1,
         "image": "assets/pic/image1.png"
     },
     {
         "id": 8,
-        "name": "Head phone",
+        "name": "SODA1004",
         "price": 880.00,
         "original_price": 1020.00,
         "rating": 4,
