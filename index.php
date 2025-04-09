@@ -1,10 +1,9 @@
 <?php 
 require_once('inc/header.php');
  // to get data from json_file_product
-$products = get_data_from_json($GLOBALS['json_file_product']);
-// <?php show_message(); 
+// $products = get_data_from_json($GLOBALS['json_file_product']);
+$products=get_products();
 ?>
-
 
 <!------------------------------------------------------------- Section -------------------------------------------------->
 
@@ -12,7 +11,6 @@ $products = get_data_from_json($GLOBALS['json_file_product']);
     <div class="container px-4 px-lg-5 mt-5">
         
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
             <?php 
             //to check you have product in json file
             if (!empty($products)): 
@@ -71,7 +69,7 @@ $products = get_data_from_json($GLOBALS['json_file_product']);
 <!---------------------------------- Product actions ----------------------------------------->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <form method="POST" action="handler/cart/create.php">
-                                    <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                                    <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-outline-dark mt-auto">Add to cart</button>
                                     </div>

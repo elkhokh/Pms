@@ -7,7 +7,7 @@
             <div class="col-12">
                 <?php if (empty($_SESSION['cart'])): ?>
                     <div class="alert alert-warning" role="alert">
-                    Your cart is empty Return to <a href="index.php" class="alert-link">Home</a> 
+                    Your Cart Is Empty Return To <a href="index.php" class="alert-link">Home</a> 
 </div>
                 <?php else: ?>
                     <table class="table table-bordered border-primary">

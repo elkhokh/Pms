@@ -1,5 +1,5 @@
 <?php
-// session_start();
+
 /************************* golbal variables*************************** */
 $json_file_checkout=realpath(__DIR__ . "/../data/checkout.json");
 $json_file_user=realpath(__DIR__ . "/../data/user.json");
@@ -40,7 +40,7 @@ function get_data_from_json($file_name = '')
 {
     if($file_name == '')
     {
-        $file_name = $GLOBALS['json_file'];
+        $file_name = $GLOBALS['json_file_crat'];
     }
     if(!file_exists($file_name))
     {
@@ -58,7 +58,7 @@ function set_data_in_json(array $data , $file = '')
 {
     if(!$file)
     {
-        $file = $GLOBALS['json_file'];
+        $file = $GLOBALS['json_file_crat'];
     }
     if(!file_exists($file))
     {
@@ -159,10 +159,21 @@ function contect_from__user($name,$email,$message){
 
 /************************************** function add to cart****************** */
 
+// $products = $GLOBALS['json_file_product'];
+    // $product = file_exists($products) ? json_decode(file_get_contents($products), true) : [];
+function get_products()
+{
+    $products = $GLOBALS['json_file_product'];
+    return file_exists($products) ? json_decode(file_get_contents($products), true) : [];
+}
 function add_to_cart($product_id, $quantity = 1) {
-    $products = get_data_from_json($GLOBALS['json_file_product']);
-    $product = null;
+    //to get data from product file 
+    // $products = get_data_from_json($GLOBALS['json_file_product']);
+    // $product = null;
     
+   $products =get_products();
+     $product = null;
+
     foreach ($products as $value) 
     {
         if ($value['id'] == $product_id) {
@@ -170,6 +181,7 @@ function add_to_cart($product_id, $quantity = 1) {
             break;
         }
     }
+    // if i don't have any product
     if (!$product) 
     {
         return false;
@@ -199,11 +211,11 @@ function add_to_cart($product_id, $quantity = 1) {
             'quantity' => $quantity
         ];
     }
-    $cart = get_data_from_json($GLOBALS['json_file_cart']);
+    $cart = get_products();
     $_SESSION['cart'] = $cart;
     return true;
 }
-
+/*************************** increment the quantity of product************************ */
 function update_cart_quantity($product_id, $quantity) {
     if (isset($_SESSION['cart'])) {
         foreach ($_SESSION['cart'] as &$item) {
@@ -219,7 +231,7 @@ function update_cart_quantity($product_id, $quantity) {
     }
     return false;
 }
-
+/************************delete the product************************* */
 function remove_from_cart($product_id) {
     if (isset($_SESSION['cart'])) {
         foreach ($_SESSION['cart'] as $key => $item) {

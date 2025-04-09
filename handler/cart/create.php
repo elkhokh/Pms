@@ -4,8 +4,8 @@ include_once "../../core/validations.php";
 include_once "../../core/functions.php";
 
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
-    $product_id = $_POST['product_id'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
+    $product_id = $_POST['id'];
     // $product_name = $_POST['product_name'];
     // $price = $_POST['price'];
     // $quantity = $_POST['quantity'];

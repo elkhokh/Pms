@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (login_admin( $email, $password)) 
     {
         set_messages('success', "WELLCOME ADMIN ^_^");
-        header("Location: ../../show_data.php");
+        header("Location: ../../control_admin.php");
     //   print_r(  header("Location: ../../index.php")); 
         exit;
     } else {
