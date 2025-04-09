@@ -69,7 +69,9 @@ $products=get_products();
 <!---------------------------------- Product actions ----------------------------------------->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <form method="POST" action="handler/cart/create.php">
-                                    <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+                                    <input type="hidden" name="id" value="<?= $product['id']; ?>">
+                                    <input type="hidden" name="name" value="<?= $product['name']; ?>">
+                                    <input type="hidden" name="price" value="<?= $product['price']; ?>">
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-outline-dark mt-auto">Add to cart</button>
                                     </div>
@@ -79,7 +81,7 @@ $products=get_products();
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p>No products available.</p>
+                <p>No products available ِAdd Product In Product File Json</p>
             <?php endif; ?>
         </div>
     </div>

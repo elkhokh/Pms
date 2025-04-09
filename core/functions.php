@@ -27,46 +27,7 @@ function show_message()
 }
 
 /***********************************global functions ************************************ */
-function create_user_session($array):void
-{
-    if(isset($_SESSION['user']))
-    {
-        unset($_SESSION['user']);
-    }
-        $_SESSION['user']= $array;
-}
-// still not use 
-function get_data_from_json($file_name = '')
-{
-    if($file_name == '')
-    {
-        $file_name = $GLOBALS['json_file_crat'];
-    }
-    if(!file_exists($file_name))
-    {
-        return false;
-    }
-    $file =  file_exists($file_name  ) ? json_decode(file_get_contents($file_name ), true) : [];
-    if(!is_array($file))
-    {
-        set_data_in_json([] , $file);
-    }
-    return $file;   
-}
-// still not use 
-function set_data_in_json(array $data , $file = '')
-{
-    if(!$file)
-    {
-        $file = $GLOBALS['json_file_crat'];
-    }
-    if(!file_exists($file))
-    {
-        return false;
-    }
-    file_put_contents($file,json_encode($data,JSON_PRETTY_PRINT));
-    return true;
-}
+
 /****************************** register function ******************************** */
 
 function register_user($name,$email,$password){
@@ -159,96 +120,64 @@ function contect_from__user($name,$email,$message){
 
 /************************************** function add to cart****************** */
 
-// $products = $GLOBALS['json_file_product'];
-    // $product = file_exists($products) ? json_decode(file_get_contents($products), true) : [];
 function get_products()
 {
-    $products = $GLOBALS['json_file_product'];
-    return file_exists($products) ? json_decode(file_get_contents($products), true) : [];
+    $products_file = $GLOBALS['json_file_product'];
+ return file_exists($products_file) ? json_decode(file_get_contents($products_file), true) : [];
+ 
 }
-function add_to_cart($product_id, $quantity = 1) {
-    //to get data from product file 
-    // $products = get_data_from_json($GLOBALS['json_file_product']);
-    // $product = null;
-    
-   $products =get_products();
-     $product = null;
 
-    foreach ($products as $value) 
-    {
-        if ($value['id'] == $product_id) {
-            $product = $value;
-            break;
-        }
-    }
-    // if i don't have any product
-    if (!$product) 
-    {
-        return false;
-    }
+function get_cart()
+{
+    $products_file = $GLOBALS['json_file_cart'];
+ return file_exists($products_file) ? json_decode(file_get_contents($products_file), true) : [];
+ 
+}
 
-    if (!isset($_SESSION['cart'])) 
+function set_cart(){
+    $cart_file= $GLOBALS['json_file_product'];
+    $carts=file_exists($cart_file) ? json_decode(file_get_contents($cart_file), true) : [];
+    if(!is_array($carts))
     {
-        $_SESSION['cart'] = [];
+     $carts = [];
     }
-
-    $found = false;
-    foreach ($_SESSION['cart'] as &$item)
-    {
-        if ($item['id'] == $product_id) {
-            $item['quantity'] += $quantity;
-            $found = true;
-            break;
-        }
-    }
-
-    if (!$found) 
-    {
-        $_SESSION['cart'][] = [
-            'id' => $product['id'],
-            'name' => $product['name'],
-            'price' => $product['price'],
-            'quantity' => $quantity
-        ];
-    }
-    $cart = get_products();
-    $_SESSION['cart'] = $cart;
     return true;
 }
-/*************************** increment the quantity of product************************ */
-function update_cart_quantity($product_id, $quantity) {
-    if (isset($_SESSION['cart'])) {
-        foreach ($_SESSION['cart'] as &$item) {
-            if ($item['id'] == $product_id) {
-                $item['quantity'] = max(1, (int)$quantity);
-                $cart_file = $GLOBALS['json_file_cart'];
-                $cart = file_exists($cart_file) ? json_decode(file_get_contents($cart_file), true) : [];
-                //  get_data_from_json($GLOBALS['json_file_cart']);
-              $_SESSION['cart'] = $cart;
-                return true;
-            }
-        }
+/******************************************** function add to cart **************************************** */
+function add_to_cart($Product_id,$name,$price, $quantity = 1) {
+    
+    $cart_file= $GLOBALS['json_file_cart'];
+    $carts=file_exists($cart_file) ? json_decode(file_get_contents($cart_file), true) : [];
+    if(!is_array($carts))
+    {
+     $carts = [];
     }
-    return false;
-}
-/************************delete the product************************* */
-function remove_from_cart($product_id) {
-    if (isset($_SESSION['cart'])) {
-        foreach ($_SESSION['cart'] as $key => $item) {
-            if ($item['id'] == $product_id) {
-                unset($_SESSION['cart'][$key]);
-                break;
-            }
-        }
-        $_SESSION['cart'] = array_values($_SESSION['cart']);
-        $cart_file = $GLOBALS['json_file_cart'];
-        $cart = file_exists($cart_file) ? json_decode(file_get_contents($cart_file), true) : [];
-        // $cart = get_data_from_json($GLOBALS['json_file_cart']);
-    $_SESSION['cart'] = $cart;
+    $id = empty($carts) ? 1 : max(array_column($carts,'id')) + 1;
+        $product_in_cart= [
+            "id" => $id,
+            "Product_id"=>$Product_id,
+            "price" => $price,
+            "name" => $name,
+            "quantity" => $quantity
+        ];
+
+        $carts[] = $product_in_cart;
+        file_put_contents($cart_file, json_encode($carts, JSON_PRETTY_PRINT));
         return true;
     }
-    return false;
-}
+
+/**************************************** */
+
+
+
+
+
+
+
+
+
+
+
 
 
 
