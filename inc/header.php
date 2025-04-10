@@ -8,7 +8,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>
-            Shop Homepage - EraaSoft PMS Template
+            Shop Homepage - ELECTO
 
         </title>
         <!-- Favicon-->
@@ -36,7 +36,7 @@ include_once "core/functions.php";
 <div class="container">
 <?php show_message(); ?>
 </div>
-            <h1 class="display-3 fw-bolder">Shop in style</h1>
+            <h5 class="display-3 fw-bolder">ELECTO SHOP</h5>
         </div>
         
     </div>
