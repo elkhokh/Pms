@@ -1,1 +1,30 @@
-[]
+[
+    {
+        "id": 1,
+        "Product_id": "3",
+        "price": "2500",
+        "name": "Smart Watch",
+        "quantity": 3
+    },
+    {
+        "id": 2,
+        "Product_id": "3",
+        "price": "2500",
+        "name": "Smart Watch",
+        "quantity": 1
+    },
+    {
+        "id": 3,
+        "Product_id": "8",
+        "price": "880",
+        "name": "SODA1004",
+        "quantity": 1
+    },
+    {
+        "id": 4,
+        "Product_id": "7",
+        "price": "180",
+        "name": "Head Phone PRO",
+        "quantity": 1
+    }
+]
