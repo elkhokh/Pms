@@ -166,6 +166,27 @@ function add_to_cart($Product_id,$name,$price, $quantity = 1) {
         return true;
     }
 
+ /******************** function of edit quantity******************** */
+function update_item_from_cart($product_id, $update_quantity) {
+    $cart_file = $GLOBALS['json_file_cart'];
+    $carts = file_exists($cart_file) ? json_decode(file_get_contents($cart_file), true) : [];
+    if (!$carts) {
+        return false;
+    }
+    $found = false;
+    foreach ($carts as &$cart) {
+        if ($cart['id'] == $product_id) {
+            $cart['quantity'] = $update_quantity; // Fix: Use $update_quantity directly
+            $found = true;
+            break;
+        }
+    }
+    if (!$found) {
+        return false;
+    }
+    file_put_contents($cart_file, json_encode($carts, JSON_PRETTY_PRINT));
+    return true;
+}
 /****************************** function of delete****************************** */
 
 function delete_from_cart($Product_id){
@@ -196,30 +217,32 @@ function delete_from_cart($Product_id){
 }
 
 
-/******************** function of edit quantity******************** */
-function update_item_from_cart($product_id, $update_quantity) {
-    $cart_file = $GLOBALS['json_file_cart'];
-    $carts = file_exists($cart_file) ? json_decode(file_get_contents($cart_file), true) : [];
-    if (!$carts) {
-        return false;
+
+/********************************chechout function *************************************** */
+
+function checkout($name,$email,$phone,$address,$notes){
+
+    $contect_file = $GLOBALS['json_file_checkout'];
+    $users = file_exists($contect_file) ? json_decode(file_get_contents($contect_file), true) : [];
+    if(!is_array($users))
+    {
+        $users = [];
     }
-    $found = false;
-    foreach ($carts as &$cart) {
-        if ($cart['id'] == $product_id) {
-            $cart['quantity'] = $update_quantity; // Fix: Use $update_quantity directly
-            $found = true;
-            break;
-        }
-    }
-    if (!$found) {
-        return false;
-    }
-    file_put_contents($cart_file, json_encode($carts, JSON_PRETTY_PRINT));
+    // $data= get_data_from_json($GLOBALS['json_file_user']);
+    $id = empty($users) ? 1 :  max(array_column($users,'id')) + 1 ;
+    $data =[
+        'id'=>$id , 
+        'name'=>$name,
+        'email'=>$email,
+        'phone'=>$phone,
+        'address'=>$address,
+        'notes'=>$notes
+    ];
+        // set_data_in_json($data , $GLOBALS['json_file_user']);
+    $users[] = $data;
+    file_put_contents($contect_file, json_encode($users, JSON_PRETTY_PRINT));
     return true;
 }
-/*********************************************************************** */
-
-
 
 
 

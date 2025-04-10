@@ -9,11 +9,11 @@ function valid_data_require($var_input_data,$key_of_var)
 /***************************sub check validation function ********************************** */ 
 function valid_email($email)
 {
-    return filter_var($email,FILTER_VALIDATE_EMAIL)?null:"invalid email, you hack me man !!";
+    return filter_var($email,FILTER_VALIDATE_EMAIL) ? null:"invalid email, you hack me man !!";
 }
 function valid_phone($phone)
 {
-    return (is_numeric($phone))?null:"can you enter your phone ture";
+    return (is_numeric($phone)&&$phone>10&&$phone<15)?null:"can you enter your phone ture";
 }
     function valid_password($password) 
     {
@@ -111,6 +111,31 @@ if( valid_email($email))
     }
     return null; 
 }
+/******************** checkout validation**************** */
 
+function valid_checkout($name,$email,$phone,$address,$notes){        
+    $data_contect=[
+        'name'=>htmlspecialchars($name),
+        'email'=>htmlspecialchars($email),
+        'phone'=>htmlspecialchars($phone),
+        'address'=>htmlspecialchars($address),
+        'notes'=>htmlspecialchars($notes),
+    
+];
+    foreach($data_contect as $key =>$value)
+    {
+        if(valid_data_require($value,$key)){
+            return $type_of_error = valid_data_require($value,$key);
+        }
+    }
+    if( valid_email($email))
+        {
+    return $type_of_error=valid_email($email); 
+    }
+    if(valid_phone($phone)){
+        return $type_of_error=valid_email($phone);  
+    }
+    return null; 
+}
 ?>
 

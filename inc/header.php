@@ -31,6 +31,7 @@
         <?php
 // session_start();
 include_once "core/functions.php";
+
 ?>
 <div class="container">
 <?php show_message(); ?>
