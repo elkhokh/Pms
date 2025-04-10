@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (add_to_cart($Product_id,$name,$price)) {
         set_messages('success', "Product added to cart successfully!");
+        
     } else {
         set_messages('danger', "Failed to add product to cart!");
     }

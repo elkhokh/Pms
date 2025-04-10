@@ -1,6 +1,5 @@
-<?php  
-//  session_start();
- ?>
+<?php include_once "core/functions.php";?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#!">
@@ -20,7 +19,17 @@
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">
+                                <?php  
+//  session_start();
+            if (!empty(get_cart())){
+                $count = 0;
+            foreach (get_cart() as $item){
+                $count += $item['quantity']; 
+            } echo $count;
+                    } else echo 0;
+
+ ?>   </span>
                         </button>
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     
@@ -49,4 +58,5 @@
                 </div>
             </div>
         </nav>
-      
+
+    

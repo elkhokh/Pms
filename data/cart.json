@@ -26,5 +26,19 @@
         "price": "20000",
         "name": "Pro-max",
         "quantity": 1
+    },
+    {
+        "id": 5,
+        "Product_id": "2",
+        "price": "4000",
+        "name": "Camera",
+        "quantity": 1
+    },
+    {
+        "id": 6,
+        "Product_id": "4",
+        "price": "2800",
+        "name": "Wirelss Mouse",
+        "quantity": 1
     }
 ]

@@ -166,7 +166,43 @@ function add_to_cart($Product_id,$name,$price, $quantity = 1) {
         return true;
     }
 
-/**************************************** */
+/****************************** function of delete****************************** */
+
+function delete_from_cart($Product_id){
+    $product_file = $GLOBALS['json_file_cart'];
+
+    if(!file_exists($product_file)){
+        return false;
+    }
+    
+    $item = json_decode(file_get_contents($product_file),true);
+    
+    if(!$item){
+        return false;
+    }
+
+    $found = false;
+    foreach($item as $key => $emp){
+        if($emp['id'] == $Product_id){
+            unset($item[$key]);
+            $found = true;
+            break;
+        }
+    }
+
+    if(!$found){
+        return false;
+    }
+
+    $item = array_values($item);
+    file_put_contents($product_file, json_encode($item, JSON_PRETTY_PRINT));
+    return true;
+}
+
+
+/******************** function of edit quantity******************** */
+
+
 
 
 
