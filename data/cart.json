@@ -4,14 +4,14 @@
         "Product_id": "4",
         "price": "2800",
         "name": "Wirelss Mouse",
-        "quantity": 1
+        "quantity": 3
     },
     {
         "id": 2,
         "Product_id": "2",
         "price": "4000",
         "name": "Camera",
-        "quantity": 1
+        "quantity": 2
     },
     {
         "id": 3,
@@ -39,6 +39,13 @@
         "Product_id": "4",
         "price": "2800",
         "name": "Wirelss Mouse",
+        "quantity": 1
+    },
+    {
+        "id": 7,
+        "Product_id": "7",
+        "price": "180",
+        "name": "Head Phone PRO",
         "quantity": 1
     }
 ]

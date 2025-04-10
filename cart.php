@@ -36,17 +36,17 @@
             ?>
                 <tr>
                     <th scope="row">
-                        <?php echo $index++; ?>
+                        <?= $index++; ?>
                     </th>
                     <td>
-                        <?php echo $item['name']; ?>
+                        <?= $item['name']; ?>
                     </td>
                     <td>$
                         <?php echo number_format($item['price'], 2); ?>
                 </td>
                     <td>
                         <form  action="handler/cart/update.php" method="POST" class="d-inline">
-                            <input type="hidden" name="product_id" value="<?= $item['id']; ?>">
+                            <input type="hidden" name="id" value="<?= $item['id']; ?>">
                             <input type="number" name="quantity" value="<?= $item['quantity']; ?>" min="1" style="width: 60px ;">
                             <input type="hidden" name="update_quantity" value="1">
                             <button type="submit" class="badge rounded-pill text-bg-success">Update</button>

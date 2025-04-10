@@ -176,11 +176,9 @@ function delete_from_cart($Product_id){
     }
     
     $item = json_decode(file_get_contents($product_file),true);
-    
     if(!$item){
         return false;
     }
-
     $found = false;
     foreach($item as $key => $emp){
         if($emp['id'] == $Product_id){
@@ -189,11 +187,9 @@ function delete_from_cart($Product_id){
             break;
         }
     }
-
     if(!$found){
         return false;
     }
-
     $item = array_values($item);
     file_put_contents($product_file, json_encode($item, JSON_PRETTY_PRINT));
     return true;
@@ -201,8 +197,27 @@ function delete_from_cart($Product_id){
 
 
 /******************** function of edit quantity******************** */
-
-
+function update_item_from_cart($product_id, $update_quantity) {
+    $cart_file = $GLOBALS['json_file_cart'];
+    $carts = file_exists($cart_file) ? json_decode(file_get_contents($cart_file), true) : [];
+    if (!$carts) {
+        return false;
+    }
+    $found = false;
+    foreach ($carts as &$cart) {
+        if ($cart['id'] == $product_id) {
+            $cart['quantity'] = $update_quantity; // Fix: Use $update_quantity directly
+            $found = true;
+            break;
+        }
+    }
+    if (!$found) {
+        return false;
+    }
+    file_put_contents($cart_file, json_encode($carts, JSON_PRETTY_PRINT));
+    return true;
+}
+/*********************************************************************** */
 
 
 
