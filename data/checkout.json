@@ -1,18 +1,34 @@
 [
     {
-        "id": 1,
-        "name": "xyfyrunafy@mailinator.com",
-        "email_ch": "jojohed@mailinator.com",
-        "phone": "80000000011",
-        "address": "losohisy@mailinator.com",
-        "notes": "kihutyle@mailinator.com"
-    },
-    {
-        "id": 2,
-        "name": "ferazuzabe@mailinator.com",
-        "email_ch": "pivorejyne@mailinator.com",
-        "phone": "67131154564",
-        "address": "seqaqek@mailinator.com",
-        "notes": "dolupas@mailinator.com"
+        "id": 6,
+        "name": "Mustafa Khalid abd elmonem elkhokh ",
+        "email_ch": "mustafaelkhokhy@gmail.com",
+        "phone": "01004643861",
+        "address": "tanta",
+        "notes": "good word",
+        "cart": [
+            {
+                "id": 1,
+                "Product_id": "2",
+                "price": "4000",
+                "name": "Camera",
+                "quantity": 1
+            },
+            {
+                "id": 2,
+                "Product_id": "2",
+                "price": "4000",
+                "name": "Camera",
+                "quantity": 1
+            },
+            {
+                "id": 3,
+                "Product_id": "3",
+                "price": "2500",
+                "name": "Smart Watch",
+                "quantity": 1
+            }
+        ],
+        "total_price": 10500
     }
 ]

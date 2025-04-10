@@ -14,7 +14,9 @@
 
 
 <?php else: ?>
-    <table class="table table-bordered border-primary">
+    <!-- <table class="table table-dark table-hover"> -->
+    <table class="table table-hover"">
+    <!-- <table class="table table-bordered"> -->
         <thead>
             <tr>
                 <th scope="col">#</th>

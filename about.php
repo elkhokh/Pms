@@ -8,31 +8,28 @@
         <div class="row">
             <div class="col-12">
                 <div class="border p-4 text-center my-5">
-                    <h2>Our Mission</h2>
+                    <h2> Project Idea:</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsum corporis tempore atque, dolor totam! Adipisci impedit quod sapiente suscipit? Vitae fugit, animi quam quaerat aspernatur vel dolorum non temporibus porro repellendus placeat quas labore maiores sint consectetur nemo pariatur tempore similique explicabo ad. Ipsam, recusandae esse dignissimos sapiente dolor pariatur voluptatem voluptate at commodi veritatis totam harum, nostrum quis maiores odio temporibus optio assumenda omnis! Repellat et nisi architecto reprehenderit? Quos, reprehenderit totam recusandae dolorum architecto facilis dolor ratione deserunt fugiat expedita optio explicabo rem ipsum minima veritatis nisi aperiam perspiciatis ad repellendus cupiditate, quo sint laboriosam cum? Veritatis .
+                    Project Idea:
+                    The PMS (Product Management System) project is a simple product management system built using PHP and JSON. Its main goal is to manage a small online store. The system allows users (such as customers) to browse products, add them to a cart, update quantities, remove products from the cart, and finally complete the purchase through a "Checkout" process. This project is ideal for beginners in web development because it uses simple technologies like PHP and JSON instead of complex databases like MySQL.
                     </p>
                 </div>
 
                 <div class="border p-4 text-center my-5">
-                    <h2>Our Vission</h2>
+                    <h2>About the Project:</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsum corporis tempore atque, dolor totam! Adipisci impedit quod sapiente suscipit? Vitae fugit, animi quam quaerat aspernatur vel dolorum non temporibus porro repellendus placeat quas labore maiores sint consectetur nemo pariatur tempore similique explicabo ad. Ipsam, recusandae esse dignissimos sapiente dolor pariatur voluptatem voluptate at commodi veritatis totam harum, nostrum quis maiores odio temporibus optio assumenda omnis! Repellat et nisi architecto reprehenderit? Quos, reprehenderit totam recusandae dolorum architecto facilis dolor ratione deserunt fugiat expedita optio explicabo rem ipsum minima veritatis nisi aperiam perspiciatis ad repellendus cupiditate, quo sint laboriosam cum? Veritatis .
+                    
+The PMS project is a basic e-commerce website that includes several pages, such as:
+
+Home Page (index.php): Displays available products (e.g., Pro-max, Camera, Smart Watch, etc.) with their prices and ratings, allowing users to add products to their cart.
+Cart Page (cart.php): Shows the products the user has added to the cart, with options to update quantities or remove products.
+Checkout Page (checkout.php): Allows the user to complete the purchase by entering their details (e.g., address and phone number).
+Additional Pages: Such as the login page (login.php), registration page (register.php), and contact page (contact.php).
+The project uses JSON files (e.g., product.json, cart.json, checkout.json) instead of a database to store data about products, the cart, and orders. It also uses PHP's $_SESSION to manage the cart during a user's session. 
                     </p>
                 </div>
-
-                <div class="border p-4  my-5">
-                    <h2 class="text-center">Our Goals</h2>
-                    <h6 class="border p-3 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, itaque.</h6>
-                    <h6 class="border p-3 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, itaque.</h6>
-                    <h6 class="border p-3 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, itaque.</h6>
-                    <h6 class="border p-3 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, itaque.</h6>
-                    <h6 class="border p-3 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, itaque.</h6>
-                    <h6 class="border p-3 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, itaque.</h6>
-                    <h6 class="border p-3 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, itaque.</h6>
-                    <h6 class="border p-3 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, itaque.</h6>
-                    <h6 class="border p-3 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, itaque.</h6>
-                </div>
+<div>            </div>
+            
             </div>
         </div>
     </div>

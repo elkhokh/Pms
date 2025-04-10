@@ -19,17 +19,19 @@
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
+                            
+                            
                             <span class="badge bg-dark text-white ms-1 rounded-pill">
                                 <?php  
-//  session_start();
+                                // if(isset($_SESSION['user']))
             if (!empty(get_cart())){
                 $count = 0;
             foreach (get_cart() as $item){
                 $count += $item['quantity']; 
             } echo $count;
                     } else echo 0;
-
- ?>   </span>
+                    ?>   
+        </span>
                         </button>
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     

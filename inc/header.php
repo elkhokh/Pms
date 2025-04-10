@@ -23,7 +23,16 @@
     <body>
 
         <!-- Navigation-->
+        <?php
+//  ob_start();
+//  session_start();
 
+if (!isset($_SESSION['user'])) {
+    $return_url = urlencode('checkout.php');
+    header("Location: login.php?return_url=$return_url");
+    exit;
+} 
+?>
 <?php require_once('nav.php'); ?>
 <header class="bg-dark py-3">
     <div class="container px-3 px-lg-3 my-3">

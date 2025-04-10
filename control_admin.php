@@ -1,78 +1,40 @@
 <?php require_once('inc/header.php'); ?>
-<!-- <button type="button" class="btn btn-primary position-relative">
-  Inbox
-  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-    99+
-    <span class="visually-hidden">unread messages</span>
-  </span>
-</button> -->
+
 <!-- Section -->
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row">
             <div class="col-12">
-                <?php if (empty($_SESSION['cart'])): ?>
-                    <p>Your cart is empty.</p>
-                <?php else: ?>
-                    <table class="table table-success table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Total</th>
-                                <th scope="col">Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $total = 0;
-                            $index = 1;
-                            foreach ($_SESSION['cart'] as $item):
-                                $item_total = $item['price'] * $item['quantity'];
-                                $total += $item_total;
-                            ?>
-                                <tr>
-                                    <th scope="row">
-                                        <?php echo $index++; ?>
-                                    </th>
-                                    <td>
-                                        <?php echo $item['name']; ?>
-                                    </td>
-                                    <td>$
-                                        <?php echo number_format($item['price'], 2); ?>
-                                </td>
-                                    <td>
-                                        <form method="POST" action="handler/cart/update.php" class="d-inline">
-                                            <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
-                                            <input type="number" name="quantity" value="<?php echo $item['quantity']; ?>" min="1" style="width: 60px;">
-                                            <input type="hidden" name="update_quantity" value="1">
-                                            <button type="submit" class="btn btn-sm  btn-outline-success">Update</button>
-                                        </form>
-                                    </td>
-                                    <td>$<?php echo number_format($item_total, 2); ?></td>
-                                    <td>
-                                        <form method="POST" action="handler/cart/delete.php" class="d-inline">
-                                            <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
-                                            <button type="submit" class="btn btn-outline-danger">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                            <tr>
-                                <td colspan="2">Total Price</td>
-                                <td colspan="3">
-                                    <h3>$
-                                        <?php echo number_format($total, 2); ?></h3>
-                                </td>
-                                <td>
-                                    <a href="checkout.php" class="btn btn-outline-primary">Checkout</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                <?php endif; ?>
+      
+<div class="content">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Admin Control
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Admin Contol</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        choose a button to control
+      </div>
+      <form action='add_product.php' method='POST'>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add product</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
             </div>
         </div>
     </div>
