@@ -221,31 +221,6 @@ function delete_from_cart($Product_id){
 
 /********************************chechout function *************************************** */
 
-// function checkout($name,$email,$phone,$address,$notes){
-
-//     $contect_file = $GLOBALS['json_file_checkout'];
-//     $users = file_exists($contect_file) ? json_decode(file_get_contents($contect_file), true) : [];
-//     if(!is_array($users))
-//     {
-//         $users = [];
-//     }
-//     // $data= get_data_from_json($GLOBALS['json_file_user']);
-//     $id = empty($users) ? 1 :  max(array_column($users,'id')) + 1 ;
-//     $data =[
-//         'id'=>$id , 
-//         'name'=>$name,
-//         'email_ch'=>$email,
-//         'phone'=>$phone,
-//         'address'=>$address,
-//         'notes'=>$notes
-//     ];
-//         // set_data_in_json($data , $GLOBALS['json_file_user']);
-//     $users[] = $data;
-//     file_put_contents($contect_file, json_encode($users, JSON_PRETTY_PRINT));
-//     return true;
-// }
-/************************************* admain function ******************************** */
-
 function checkout($name, $email, $phone, $address, $notes) {
     $contect_file = $GLOBALS['json_file_checkout'];
     $users = file_exists($contect_file) ? json_decode(file_get_contents($contect_file), true) : [];
@@ -278,6 +253,9 @@ function checkout($name, $email, $phone, $address, $notes) {
     file_put_contents($GLOBALS['json_file_cart'], json_encode([], JSON_PRETTY_PRINT));
     return true;
 }
+
+/************************************* admain function ******************************** */
+
 
 
 

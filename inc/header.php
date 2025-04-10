@@ -26,12 +26,16 @@
         <?php
 //  ob_start();
 //  session_start();
+// if (!isset($_SESSION['user'])) {
+//     $return_url = urlencode('checkout.php');
+//     if (isset($_GET['return_url']) && $_GET['return_url'] === 'checkout.php') {
+//         header("Location: index.php");
+//         exit;
+//     }
+//     header("Location: login.php?return_url=$return_url");
+//     exit;
+// }
 
-if (!isset($_SESSION['user'])) {
-    $return_url = urlencode('checkout.php');
-    header("Location: login.php?return_url=$return_url");
-    exit;
-} 
 ?>
 <?php require_once('nav.php'); ?>
 <header class="bg-dark py-3">
