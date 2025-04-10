@@ -1,51 +1,16 @@
 [
     {
         "id": 1,
-        "Product_id": "4",
-        "price": "2800",
-        "name": "Wirelss Mouse",
+        "Product_id": "1",
+        "price": "20000",
+        "name": "Pro-max",
         "quantity": 3
     },
     {
         "id": 2,
-        "Product_id": "2",
-        "price": "4000",
-        "name": "Camera",
-        "quantity": 2
-    },
-    {
-        "id": 3,
-        "Product_id": "2",
-        "price": "4000",
-        "name": "Camera",
-        "quantity": 2
-    },
-    {
-        "id": 4,
-        "Product_id": "1",
-        "price": "20000",
-        "name": "Pro-max",
-        "quantity": 1
-    },
-    {
-        "id": 5,
-        "Product_id": "2",
-        "price": "4000",
-        "name": "Camera",
-        "quantity": 1
-    },
-    {
-        "id": 6,
-        "Product_id": "4",
-        "price": "2800",
-        "name": "Wirelss Mouse",
-        "quantity": 1
-    },
-    {
-        "id": 7,
-        "Product_id": "7",
-        "price": "180",
-        "name": "Head Phone PRO",
+        "Product_id": "6",
+        "price": "400",
+        "name": "Wirelss Mouse Pro",
         "quantity": 1
     }
 ]

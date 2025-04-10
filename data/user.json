@@ -232,5 +232,11 @@
         "name": "mostafa",
         "email": "mostafa@gmail.com",
         "password": "$2y$10$EImQRH5\/l3jGmmBi1QS8seCJICNnpLduuntmX0.Jgnu2u4a8IAUmC"
+    },
+    {
+        "id": 40,
+        "name": "mostafa",
+        "email": "mustafaelkhokhy@gmail.com",
+        "password": "$2y$10$g4.oy.tcNOJGkG3jQIBsFOXZvjaMicNLzU96LOmS.p0agej3Ea.ke"
     }
 ]

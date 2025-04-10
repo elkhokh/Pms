@@ -39,7 +39,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="">Email</label>
-                            <input type="email" name="email" id="" class="form-control">
+                            <input type="email" name="email_ch" id="" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="">Address</label>

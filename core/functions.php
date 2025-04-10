@@ -216,8 +216,6 @@ function delete_from_cart($Product_id){
     return true;
 }
 
-
-
 /********************************chechout function *************************************** */
 
 function checkout($name,$email,$phone,$address,$notes){
@@ -233,7 +231,7 @@ function checkout($name,$email,$phone,$address,$notes){
     $data =[
         'id'=>$id , 
         'name'=>$name,
-        'email'=>$email,
+        'email_ch'=>$email,
         'phone'=>$phone,
         'address'=>$address,
         'notes'=>$notes
@@ -243,7 +241,7 @@ function checkout($name,$email,$phone,$address,$notes){
     file_put_contents($contect_file, json_encode($users, JSON_PRETTY_PRINT));
     return true;
 }
-
+/************************************* admain function ******************************** */
 
 
 

@@ -13,7 +13,8 @@ function valid_email($email)
 }
 function valid_phone($phone)
 {
-    return (is_numeric($phone)&&$phone>10&&$phone<15)?null:"can you enter your phone ture";
+   $phone =strlen($phone);
+    return (is_numeric($phone)&& $phone>10 && $phone<15)?null:"can you enter your phone ture";
 }
     function valid_password($password) 
     {
@@ -54,19 +55,19 @@ function valid_register($name,$email,$password,$password_confirm){
         }
     }
     
-if( valid_email($email))
+if($type_of_error =  valid_email($email))
         {
-    return $type_of_error=valid_email($email); 
+    return $type_of_error; 
     }
 
-if(   valid_password($password))
+if( $type_of_error=  valid_password($password))
     {
-    return $type_of_error =valid_password($password);
+    return $type_of_error ;
     }
 
-if( check_confirm_password_valid($password,$password_confirm))
+if($type_of_error= check_confirm_password_valid($password,$password_confirm))
     {
-    return $type_of_error= check_confirm_password_valid($password,$password_confirm); 
+    return $type_of_error; 
     }
     return null; 
 }
@@ -96,8 +97,7 @@ function valid_contect_us($name,$email,$message){
     $data_contect=[
         'name'=>htmlspecialchars($name),
         'email'=>htmlspecialchars($email),
-        'message'=>htmlspecialchars($message),
-    
+        'message'=>htmlspecialchars($message),  
 ];
     foreach($data_contect as $key =>$value)
     {
@@ -105,10 +105,9 @@ function valid_contect_us($name,$email,$message){
             return $type_of_error = valid_data_require($value,$key);
         }
     }
-if( valid_email($email))
-        {
-    return $type_of_error=valid_email($email); 
-    }
+  if( $type_of_error = valid_email($email))
+{
+return $type_of_error; }
     return null; 
 }
 /******************** checkout validation**************** */
@@ -116,7 +115,7 @@ if( valid_email($email))
 function valid_checkout($name,$email,$phone,$address,$notes){        
     $data_contect=[
         'name'=>htmlspecialchars($name),
-        'email'=>htmlspecialchars($email),
+        'email_ch'=>htmlspecialchars($email),  
         'phone'=>htmlspecialchars($phone),
         'address'=>htmlspecialchars($address),
         'notes'=>htmlspecialchars($notes),
@@ -128,12 +127,12 @@ function valid_checkout($name,$email,$phone,$address,$notes){
             return $type_of_error = valid_data_require($value,$key);
         }
     }
-    if( valid_email($email))
+    if( $type_of_error = valid_email($email))
         {
-    return $type_of_error=valid_email($email); 
+    return $type_of_error; 
     }
-    if(valid_phone($phone)){
-        return $type_of_error=valid_email($phone);  
+    if($type_of_error =  valid_phone($phone)){
+        return $type_of_error;  
     }
     return null; 
 }

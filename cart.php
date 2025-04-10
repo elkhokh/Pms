@@ -42,7 +42,10 @@
                         <?= $item['name']; ?>
                     </td>
                     <td>$
-                        <?php echo number_format($item['price'], 2); ?>
+                        <?php
+                        //to take the two decmials 
+                         echo number_format($item['price'], 2);
+                          ?>
                 </td>
                     <td>
                         <form  action="handler/cart/update.php" method="POST" class="d-inline">
@@ -54,7 +57,7 @@
                     </td>
                     <td>$<?php echo number_format($item_total, 2); ?></td>
                     <td>
-                        <form  action='handler/cart/delete.php' method='POST' class="d-inline">
+                        <form  action="handler/cart/delete.php" method='POST' class="d-inline">
                             <input type="hidden" name="id" value="<?= $item['id']; ?>">
                                             <button type="submit" class="btn btn-outline-danger">Delete</button>
                                         </form>
