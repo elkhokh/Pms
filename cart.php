@@ -53,6 +53,7 @@
                             <input type="number" name="quantity" value="<?= $item['quantity']; ?>" min="1" style="width: 60px ;">
                             <input type="hidden" name="update_quantity" value="1">
                             <button type="submit" class="badge rounded-pill text-bg-success">Update</button>
+            </form>
                     
                     </td>
                     <td>$<?php echo number_format($item_total, 2); ?></td>
