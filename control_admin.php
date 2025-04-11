@@ -7,17 +7,17 @@
             <div class="col-12">
         <div class="content">
           <pre>
-                                                           <h2>                                  <b><li>                      click on button</li></b></h2>  
+                                                           <h2>                       <b>  click on button</b></h2>  
+         <!-- <pr>                   <div class="btn-group"> -->
+                                                      <a href="add_product.php" class="btn btn-success active" aria-current="page">   Add Product to main page   </a>
+ 
+                                                      <a href="show_product.php" class="btn btn-danger">Delete Product from main page </a>
 
-
-                            <div class="btn-group">
-      <a href="add_product.php" class="btn btn-success active" aria-current="page">   Add Product to main page  </a>
-
-      <a href="show_product.php" class="btn btn-danger">  Delete Product from main page  </a>
-
-            <a href="show_order.php" class="btn btn-warning">  Show order           </a>
+                                                      <a href="show_order.php" class="btn btn-warning">          Show order          </a>
 
 </div>
+
+
 
 
 

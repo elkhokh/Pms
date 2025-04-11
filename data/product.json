@@ -62,5 +62,38 @@
         "original_price": 1020,
         "rating": 4,
         "image": "assets\/pic\/image7.png"
+    },
+    {
+        "id": 9,
+        "name": "Gaming Keyboard X9",
+        "price": 550,
+        "original_price": 700,
+        "rating": 4,
+        "image": "assets/pic/image5.png"
+    },
+    {
+        "id": 10,
+        "name": "Smart Watch Lite",
+        "price": 320,
+        "original_price": 400,
+        "rating": 3,
+        "image": "assets/pic/image6.png"
+    },
+    {
+        "id": 11,
+        "name": "Bluetooth Speaker Mini",
+        "price": 150,
+        "original_price": 200,
+        "rating": 2,
+        "image": "assets/pic/image3.png"
+    },
+    {
+        "id": 12,
+        "name": "USB-C Hub 7-in-1",
+        "price": 220,
+        "original_price": 280,
+        "rating": 5,
+        "image": "assets/pic/image2.png"
     }
+    
 ]
