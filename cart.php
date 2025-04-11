@@ -1,6 +1,5 @@
 <?php require_once('inc/header.php'); 
 
-// $cart=get_cart();
 ?>
 
 <section class="py-5">
@@ -11,7 +10,6 @@
     <div class="alert alert-warning" role="alert">
     Your Cart Is Empty Return To <a href="index.php" class="alert-link ">Home</a> 
 </div>
-
 
 <?php else: ?>
     <!-- <table class="table table-dark table-hover"> -->

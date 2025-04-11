@@ -8,6 +8,8 @@
 <div class="content">
 
 
+<!-- enctype="multipart/form-data" -->
+
 <form  method="post" action="handler/product/create.php">
 <div class="mb-3">
         <label for="name" class="form-label">Product Name</label>
@@ -23,11 +25,6 @@
         <input type="number" id="original_price" name="original_price" class="form-control">
     </div>
 
-    
-    <!-- <div class="mb-3">
-        <label for="rating" class="form-label">Rating</label>
-        <input type="number" id="rating" name="rating" class="form-control">
-    </div> -->
 
   <div class="mb-3">
   <label for="type" class="form-label">Rating</label>
@@ -41,13 +38,9 @@
     </select>
   </div>
 
-  <!-- <div class="mb-3">
-  <label for="" class="form-label">Choose Image</label></label>
-    <input type="" class="form-control"name="image " aria-label="image" >
-  </div> -->
   <div class="mb-3">
     <label for="image" class="form-label">Choose Image</label>
-    <input type="file" class="form-control" id="image" name="image" accept="image/*" aria-label="image">
+    <input type="file" class="form-control" id="image" name="image" accept="image/*" aria-label="image"  >
 </div>
 
   <div class="mb-3">

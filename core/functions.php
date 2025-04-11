@@ -243,7 +243,9 @@ function checkout($name, $email, $phone, $address, $notes) {
         'address' => $address,
         'notes' => $notes,
         'cart' => $cart_items, 
-        'total_price' => $total_price 
+        'total_price' => $total_price ,
+        "status" => "pending",
+        "created_at" => date("Y-m-d H:i:s")
     ];
 
     $users[] = $data;
@@ -267,6 +269,7 @@ function add_product($name, $price, $original_price,$rating,$image){
     $id = empty($users) ? 1 :  max(array_column($users,'id')) + 1 ;
     $product =[
         'id'=>$id , 
+        'name'=>$name , 
         'price'=>$price,
         'original_price'=>$original_price,
         'rating'=>$rating,
@@ -279,57 +282,6 @@ function add_product($name, $price, $original_price,$rating,$image){
     return true;
 }
 
-
-// function add_product($name, $price, $original_price, $rating, $image_file) {
-//     $product_file = $GLOBALS['json_file_product'];
-//     $products = file_exists($product_file) ? json_decode(file_get_contents($product_file), true) : [];
-//     if (!is_array($products)) {
-//         $products = [];
-//     }
-
-//     $id = empty($products) ? 1 : max(array_column($products, 'id')) + 1;
-
-//     // Handle image upload
-//     $image_path = "";
-//     if (!empty($image_file['name'])) {
-//         $target_dir = "uploads/";
-//         if (!file_exists($target_dir)) {
-//             mkdir($target_dir, 0777, true);
-//         }
-
-//         $file_name = basename($image_file['name']);
-//         $file_tmp = $image_file['tmp_name'];
-//         $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
-//         $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
-
-//         if (!in_array($file_ext, $allowed_extensions)) {
-//             return false;
-//         }
-
-//         $new_file_name = uniqid() . "." . $file_ext;
-//         $target_file = $target_dir . $new_file_name;
-
-//         if (move_uploaded_file($file_tmp, $target_file)) {
-//             $image_path = "uploads/" . $new_file_name;
-//         } else {
-//             return false;
-//         }
-//     }
-
-//     $product = [
-//         'id' => $id,
-//         'name' => $name,
-//         'price' => (float)$price,
-//         'original_price' => (float)$original_price,
-//         'rating' => (int)$rating,
-//         'image' => $image_path
-//     ];
-
-//     $products[] = $product;
-//     file_put_contents($product_file, json_encode($products, JSON_PRETTY_PRINT));
-
-//     return true;
-// }
 
 
 

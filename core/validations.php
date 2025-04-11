@@ -131,6 +131,8 @@ function valid_checkout($name,$email,$phone,$address,$notes){
         'phone'=>htmlspecialchars($phone),
         'address'=>htmlspecialchars($address),
         'notes'=>htmlspecialchars($notes),
+     
+
     
 ];
     foreach($data_contect as $key =>$value)
@@ -149,7 +151,7 @@ function valid_checkout($name,$email,$phone,$address,$notes){
     return null; 
 }
 
-/***************************adding product validation ************************************ */
+// /***************************adding product validation ************************************ */
 
 function valid_add_product($name, $price, $original_price,$rating, $image){
     $products = [
@@ -175,49 +177,6 @@ function valid_add_product($name, $price, $original_price,$rating, $image){
     }
     return null; 
 }
-
-// function valid_add_product($name, $price, $original_price, $rating, $image) {
-//     $products = [
-//         'name' => htmlspecialchars($name),
-//         'price' => htmlspecialchars($price),
-//         'original_price' => htmlspecialchars($original_price),
-//         'rating' => $rating,
-//     ];
-
-//     foreach ($products as $key => $value) {
-//         if ($type_of_error = valid_data_require($value, $key)) {
-//             return $type_of_error;
-//         }
-//     }
-
-//     if ($type_of_error = valid_price($price)) {
-//         return $type_of_error;
-//     }
-
-//     if ($type_of_error = valid_original_price($original_price)) {
-//         return $type_of_error;
-//     }
-
-//     if (empty($image['name'])) {
-//         return "Image is required";
-//     }
-
-//     $file_ext = strtolower(pathinfo($image['name'], PATHINFO_EXTENSION));
-//     $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
-//     if (!in_array($file_ext, $allowed_extensions)) {
-//         return "Only JPG, JPEG, PNG, and GIF files are allowed.";
-//     }
-
-//     if ($image['size'] > 5 * 1024 * 1024) {
-//         return "Image size must not exceed 5MB.";
-//     }
-
-//     if ($image['error'] !== UPLOAD_ERR_OK) {
-//         return "An error occurred while uploading the image.";
-//     }
-
-//     return null;
-// }
 
 
 ?>

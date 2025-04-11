@@ -1,125 +1,97 @@
 <?php require_once('inc/header.php'); ?>
 
 <!-- Section -->
-<section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
+<section class="py-1">
+    <div class="container px-2 px-lg-2 mt-2">
         <div class="row">
-            <div class="col-12">
-      
-<div class="content">
-
-    <?php
-//  "name": "Smart Watch",
-//  "price": 2500.00,
-//  "original_price": 5000.00,
-//  "rating": 3,
-//  "image": "assets/pic/image.png"
-// Receeive data from the form
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $salary = $_POST['salary'];
-    $phone = $_POST['phone'];
-    $type = $_POST['type'];
-    //---------------------
-    // validate Data
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<div class='alert alert-danger'>Invalid email address</div>";
-    }
-
-    $cleanName = filter_var($name, FILTER_SANITIZE_STRING);
-
-    $empData = array(
-        "name" => $cleanName,
-        "email" => $email,
-        "salary" => $salary,
-        "phone" => $phone,
-        "type" => $type,
-    );
-
-    $empText = implode(", ",$empData) . "\n";
-
-    file_put_contents('emp.txt',$empText,FILE_APPEND);
-
-    echo "<div class='alert alert-success mt-3'>Emplyee added successfully</div>";
-}
-?>
-<div class="container mt-5">
-    <h2 class="mt-5">Add product</h2>
-    <form method="POST">
-        <div class="mb-3">
-            <label for="name" class="form-label">Name of product</label>
-            <input type="text" id="name" name="name" class="form-control">
-        </div>
-
-        <div class="mb-3">
-            <label for="price" class="form-label">price</label>
-            <input type="number" id="price" name="price" class="form-control">
-        </div>
-
-        <div class="mb-3">
-            <label for="salary" class="form-label">price after discount</label>
-            <input type="number" id="salary" name="price" class="form-control">
-        </div>
-
-        <div class="mb-3">
-            <label for="phone" class="form-label">image path</label>
-            <input type="text" id="phone" name="image" class="form-control">
-        </div>
-        
-        <div class="mb-3">
-            <label for="rating" class="form-label">Rating</label>
-            <input type="number" id="number" name="rating" class="form-control">
-        </div>
-
-        <!-- <div class="input-group mb-3">
-  <label class="input-group-text" for="inputGroupSelect01">Rating</label>
-  <select class="form-select" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-    <option value="4">four</option>
-    <option value="5">five</option>
-  </select>
-</div> -->
-
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-    <h2 class="mt-5">Employee List</h2>
-
-    <table class="table table-success table-striped-columns">
-        <thead>
+            <div class="col-15">
+    <h4 class="mt-5">Porduct List</h4>
+    <!-- <table class="table table-success table-striped-columns"> -->
+    <table class=" table table-bordered table-striped">
+        <thead class="table-dark">
             <tr>
+                 <th>ID</th>
                 <th>Name of product</th>
                 <th>Price after discount</th>
                 <th>original price</th>
                 <th>Rating </th>
-                <th>image path</th>
+                <th>Edit </th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            // if(file_exists('emp.txt')){
-            //     $fileContent = file_get_contents('emp.txt');
-
-            //     $emps = explode("\n",$fileContent);
-
-            //     foreach($emps as $emp){
-            //         if(!empty($emp)){
-            //             echo "<tr><td>" . str_replace(", " , "</td><td>",$emp) . "</td></tr>";
-            //         }
-            //     }
-            // }
+               foreach (get_products() as $items) {
+                echo "<tr>
+                <td>{$items['id']}</td>
+                <td>{$items['name']}</td>
+                <td>{$items['price']}</td>
+                <td>{$items['original_price']}</td>
+                <td>{$items['rating']}</td>
+                <td><a href='edit_product.php?id={$items['id']}' class='btn btn-outline-warning btn-sm'>Edit</a></td>
+                <td>
+                <form action='handler/product/delete.php' method='POST'>
+                <input type='hidden' name='id' value='{$items['id']}'>
+                <button class='btn btn-outline-danger'>Delete</button>
+                </form>
+                </td>
+                </tr>
+                ";
+            }
             ?>
-        </tbody>
-    </table>
+           <?php 
+require_once('inc/header.php');
+
+$products = get_products();
+$total_price = 0;
+$total_original_price = 0;
+
+if (!empty($products)) {
+    foreach ($products as $item) {
+        $total_price += (float)($item['price'] ?? 0);
+        $total_original_price += (float)($item['original_price'] ?? 0);
+    }
+    $total_savings = $total_original_price - $total_price;
+} else {
+    $total_price = 0;
+    $total_original_price = 0;
+    $total_savings = 0;
+}
+?>
+
+                <?php if (!empty($products)): ?>
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Description</th>
+                                <th scope="col">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Price (after discount)</td>
+                                <td>$<?php echo number_format($total_price, 2); ?></td>
+                            </tr>
+                            <tr>
+                                <td>Total Original Price (before discount)</td>
+                                <td>$<?php echo number_format($total_original_price, 2); ?></td>
+                            </tr>
+                            <tr>
+                                <td>Total Savings</td>
+                                <td>$<?php echo number_format($total_savings, 2); ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <?php else: ?>
+                    <div class="alert alert-warning" role="alert">
+                        No products available to calculate totals.
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 </section>
+
 
 
 <?php require_once('inc/footer.php'); ?>
