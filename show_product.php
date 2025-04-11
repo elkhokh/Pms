@@ -51,11 +51,9 @@ if (!empty($products)) {
         $total_price += (float)($item['price'] ?? 0);
         $total_original_price += (float)($item['original_price'] ?? 0);
     }
-    $total_savings = $total_original_price - $total_price;
 } else {
     $total_price = 0;
     $total_original_price = 0;
-    $total_savings = 0;
 }
 ?>
 
@@ -76,10 +74,7 @@ if (!empty($products)) {
                                 <td>Total Original Price (before discount)</td>
                                 <td>$<?php echo number_format($total_original_price, 2); ?></td>
                             </tr>
-                            <tr>
-                                <td>Total Savings</td>
-                                <td>$<?php echo number_format($total_savings, 2); ?></td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 <?php else: ?>

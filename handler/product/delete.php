@@ -5,8 +5,8 @@ include_once "../../core/functions.php";
 if($_SERVER["REQUEST_METHOD"] !== "POST" || !isset($_POST['id']) || empty($_POST['id']))
     {
     set_messages('danger', "Error in data send try again");
-            // header("Location: ../../show_product.php");
-           print_r( header("Location: ../../show_product.php"));
+            header("Location: ../../show_product.php");
+        //    print_r( header("Location: ../../show_product.php"));
         exit;
     }
 
@@ -14,6 +14,8 @@ if($_SERVER["REQUEST_METHOD"] !== "POST" || !isset($_POST['id']) || empty($_POST
     if (delete_porduct($product_id))
      {
         set_messages('success', "Product removed  ");
+        header("Location: ../../show_product.php");
+        exit;
     } 
     else {
         set_messages('danger', "Failed to remove product ");

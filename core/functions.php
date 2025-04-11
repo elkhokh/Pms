@@ -284,7 +284,7 @@ function add_product($name, $price, $original_price,$rating,$image){
 /************** function delete from product file *************************** */
 function delete_porduct($product_id){
 
-$product_file = $GLOBALS['json_file_cart'];
+$product_file = $GLOBALS['json_file_product'];
 
 if(!file_exists($product_file)){
     return false;
