@@ -35,8 +35,6 @@ $products = get_products();
                     <?php echo isset($product['image']) && !empty($product['image']) && file_exists($product['image']) ? $product['image'] : 'https://dummyimage.com/450x300/dee2e6/6c757d.jpg'; ?>
                     " alt="<?php echo isset($product['name']) ? $product['name'] : 'Product Image'; ?>" />
 
-
-
                     <!------------------------------------ Product details ------------------------------------------------->
                     <div class="card-body p-4">
                         <div class="text-center">

@@ -263,7 +263,7 @@ function add_product($name, $price, $original_price,$rating,$image){
     $product_file = $GLOBALS['json_file_product'];
     $products = file_exists($product_file) ? json_decode(file_get_contents($product_file), true) : [];
     if(!is_array($products)){
-        $users = [];
+        $products = [];
     }
 
     $id = empty($users) ? 1 :  max(array_column($users,'id')) + 1 ;
