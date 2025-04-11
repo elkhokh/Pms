@@ -268,5 +268,23 @@
         "name": "yahya weal",
         "email": "yahaya@gmail.com",
         "password": "$2y$10$VqQncdvzDLUgbiNgog5qKequi3xsb3pa3Yv5xgRYseqqWn.Q3nqcq"
+    },
+    {
+        "id": 46,
+        "name": "mostafa",
+        "email": "mustafaelkhokhy@gmail.com",
+        "password": "$2y$10$V\/L2k0ESO6LhdoV2qfiM\/OS8AKe.aZ5WrbSkiGhneafHdJnZrXxK2"
+    },
+    {
+        "id": 47,
+        "name": "mostafa",
+        "email": "mustafaelkhokhy@gmail.com",
+        "password": "$2y$10$mlxFChkfCOMBI1p7saadaejtw0awrM2becvm9CTtoRTp9LXZITJOO"
+    },
+    {
+        "id": 48,
+        "name": "mostafa",
+        "email": "mustafaelkhokhy@gmail.com",
+        "password": "$2y$10$Adc8WwDyPTgSmkuGrerVj.Dm7JjA2Uo8DFNM6k44cXj1vf301L6Hq"
     }
 ]

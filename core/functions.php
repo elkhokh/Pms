@@ -266,7 +266,7 @@ function add_product($name, $price, $original_price,$rating,$image){
         $products = [];
     }
 
-    $id = empty($users) ? 1 :  max(array_column($users,'id')) + 1 ;
+    $id = empty($products) ? 1 :  max(array_column($products,'id')) + 1 ;
     $product =[
         'id'=>$id , 
         'name'=>$name , 

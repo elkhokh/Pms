@@ -1,13 +1,5 @@
 [
     {
-        "id": 1,
-        "name": "Pro-max",
-        "price": 20000,
-        "original_price": 25000,
-        "rating": 5,
-        "image": "assets\/pic\/image6.png"
-    },
-    {
         "id": 2,
         "name": "Camera",
         "price": 4000,
@@ -77,22 +69,22 @@
         "price": 320,
         "original_price": 400,
         "rating": 3,
-        "image": "assets\/pic\/image6.png"
+        "image": "assets\/pic\/image3.png"
     },
     {
         "id": 11,
-        "name": "Bluetooth Speaker Mini",
-        "price": 150,
-        "original_price": 200,
-        "rating": 2,
-        "image": "assets\/pic\/image4.png"
+        "name": "smart watch",
+        "price": "20000",
+        "original_price": "30000",
+        "rating": "4",
+        "image": "assets\/pic\/image6.png"
     },
     {
         "id": 12,
-        "name": "USB-C Hub 7-in-1",
-        "price": 220,
-        "original_price": 280,
-        "rating": 5,
-        "image": "assets\/pic\/image2.png"
+        "name": "mostafa",
+        "price": "20000000",
+        "original_price": "2000659",
+        "rating": "5",
+        "image": "assets\/pic\/image7.png"
     }
 ]

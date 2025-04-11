@@ -6,6 +6,8 @@ include_once "../../core/functions.php";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $id = $_POST['id'] ;
     $name = $_POST['name'] ;
     $price = trim($_POST['price']);
     $original_price = trim($_POST['original_price']);
@@ -16,7 +18,7 @@ $error = valid_add_product($name, $price, $original_price,$rating, $image);
 
     if (!empty($error)) {
         set_messages('danger', $error);
-        header("Location: ../edit.php?id=$id");
+        header("Location: ../../edit_product.php?id=$id");
         exit;
     }
 
@@ -31,7 +33,7 @@ $error = valid_add_product($name, $price, $original_price,$rating, $image);
 
     if(update_product($id, $update_product)){
         set_messages('success', "Porduct updated sucessfully");
-        header("Location: ../../index.php");
+        header("Location: ../../show_product.php");
         exit;
     }else{
         set_messages('danger',"Fail update Porduct");
