@@ -20,17 +20,7 @@
         </thead>
         <tbody>
             <?php
-            // if(file_exists('emp.txt')){
-            //     $fileContent = file_get_contents('emp.txt');
-
-            //     $emps = explode("\n",$fileContent);
-
-            //     foreach($emps as $emp){
-            //         if(!empty($emp)){
-            //             echo "<tr><td>" . str_replace(", " , "</td><td>",$emp) . "</td></tr>";
-            //         }
-            //     }
-            // }
+           
             ?>
         </tbody>
     </table>

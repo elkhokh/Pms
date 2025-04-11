@@ -281,15 +281,61 @@ function add_product($name, $price, $original_price,$rating,$image){
 
     return true;
 }
+/************** function delete from product file *************************** */
+function delete_porduct($product_id){
 
+$product_file = $GLOBALS['json_file_cart'];
 
+if(!file_exists($product_file)){
+    return false;
+}
 
+$item = json_decode(file_get_contents($product_file),true);
+if(!$item){
+    return false;
+}
+$found = false;
+foreach($item as $key => $emp){
+    if($emp['id'] == $product_id){
+        unset($item[$key]);
+        $found = true;
+        break;
+    }
+}
+if(!$found){
+    return false;
+}
+$item = array_values($item);
+file_put_contents($product_file, json_encode($item, JSON_PRETTY_PRINT));
+return true;
+}
 
+/*********** function update************************************ */
 
-
-
-
-
+function update_product($id, $update_product){
+    $product_file = $GLOBALS['json_file_product'];
+    $products = file_exists($product_file) ? json_decode(file_get_contents($product_file), true) : [];
+    if (!$products) {
+        return false;
+    }
+    $found = false;
+    foreach ($products as &$product) {
+        if ($product['id'] == $id) {
+            $product['name'] = $update_product['name']; 
+            $product['price'] = $update_product['price'];
+            $product['original_price'] = $update_product['original_price'];
+            $product['rating'] = $update_product['rating']; 
+            $product['image'] = $update_product['image']; 
+            $found = true;
+            break;
+        }
+    }
+    if (!$found) {
+        return false;
+    }
+    file_put_contents($product_file, json_encode($products, JSON_PRETTY_PRINT));
+    return true;
+}
 
 
 
