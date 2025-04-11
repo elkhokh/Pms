@@ -12,8 +12,8 @@ include "inc/header.php";
                 <?php
                 if (!isset($_GET['id'])) {
 
-                    set_messages('danger', "No Product Selected");
-                    header("Location: edit_product.php");
+    set_messages('danger', "No Product Selected");
+    header("Location: edit_product.php");
                     exit;
                 }
 
@@ -30,19 +30,21 @@ include "inc/header.php";
                 ?>
 
                 <form method="post" action="handler/product/update.php">
-                <input type="hidden" id="id" name="id" class="form-control" value="<?= $items['id'] ?>">
+                    <input type="hidden" id="id" name="id" class="form-control" value="<?= $items['id'] ?>">
                     <div class="mb-3">
                         <label for="name" class="form-label">Product Name</label>
-                        <input type="text" id="name" name="name" class="form-control"value="<?= $items['name'] ?>">
+                        <input type="text" id="name" name="name" class="form-control" value="<?= $items['name'] ?>">
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Price after discount</label>
-                        <input type="number" id="price" name="price" class="form-control" value="<?= $items['price'] ?>">
+                        <input type="number" id="price" name="price" class="form-control"
+                            value="<?= $items['price'] ?>">
                     </div>
 
                     <div class="mb-3">
                         <label for="original_price" class="form-label">Price before discount</label>
-                        <input type="number" id="original_price" name="original_price" class="form-control" value="<?= $items['original_price'] ?>">
+                        <input type="number" id="original_price" name="original_price" class="form-control"
+                            value="<?= $items['original_price'] ?>">
                     </div>
 
 
@@ -58,9 +60,10 @@ include "inc/header.php";
                         </select>
                     </div>
                     <div class="mb-3">
-    <label for="image" class="form-label">Choose Image</label>
-    <input type="file" class="form-control" id="image" name="image" accept="image/*" aria-label="image" value="<?= $items['image'] ?>" >
-</div>
+                        <label for="image" class="form-label">Choose Image</label>
+                        <input type="file" class="form-control" id="image" name="image" accept="image/*"
+                            aria-label="image" value="<?= $items['image'] ?>">
+                    </div>
                     <div class="mb-3">
                         <button class="btn btn-success" type="submit">Submit Add</button>
                     </div>

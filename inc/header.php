@@ -24,17 +24,7 @@
 
         <!-- Navigation-->
         <?php
-//  ob_start();
-//  session_start();
-// if (!isset($_SESSION['user'])) {
-//     $return_url = urlencode('checkout.php');
-//     if (isset($_GET['return_url']) && $_GET['return_url'] === 'checkout.php') {
-//         header("Location: index.php");
-//         exit;
-//     }
-//     header("Location: login.php?return_url=$return_url");
-//     exit;
-// }
+
 
 ?>
 <?php require_once('nav.php'); ?>
@@ -47,7 +37,9 @@ include_once "core/functions.php";
 
 ?>
 <div class="container">
-<?php show_message(); ?>
+<?php
+
+show_message(); ?>
 </div>
             <h5 class="display-3 fw-bolder">ELECTO SHOP</h5>
         </div>

@@ -28,7 +28,7 @@
                 <td>{$items['price']}</td>
                 <td>{$items['original_price']}</td>
                 <td>{$items['rating']}</td>
-                <td><a href='edit_product.php?id={$items['id']}' class='btn btn-outline-warning btn-sm'>Edit</a></td>
+                <td><a href='edit_product.php?id={$items['id']}' class='btn btn-outline-warning'>Edit</a></td>
                 <td>
                 <form action='handler/product/delete.php' method='POST'>
                 <input type='hidden' name='id' value='{$items['id']}'>
