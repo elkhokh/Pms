@@ -1,0 +1,49 @@
+[
+    {
+        "id": 1,
+        "name": "xesy@mailinator.com",
+        "email_ch": "nyfu@mailinator.com",
+        "phone": "01004643861",
+        "address": "wucazyry@mailinator.com",
+        "notes": "gejixo@mailinator.com",
+        "cart": [
+            {
+                "id": 1,
+                "Product_id": "3",
+                "price": "2500",
+                "name": "Smart Watch",
+                "quantity": 1
+            },
+            {
+                "id": 2,
+                "Product_id": "8",
+                "price": "880",
+                "name": "SODA1004",
+                "quantity": 1
+            }
+        ],
+        "total_price": 3380,
+        "status": "done",
+        "created_at": "2025-04-11 08:08:59"
+    },
+    {
+        "id": 2,
+        "name": "cyxy@mailinator.com",
+        "email_ch": "xenuxeja@mailinator.com",
+        "phone": "705444874787",
+        "address": "coky@mailinator.com",
+        "notes": "daticany@mailinator.com",
+        "cart": [
+            {
+                "id": 1,
+                "Product_id": "7",
+                "price": "180",
+                "name": "Head Phone PRO",
+                "quantity": 4
+            }
+        ],
+        "total_price": 720,
+        "status": "pending",
+        "created_at": "2025-04-11 08:09:21"
+    }
+]

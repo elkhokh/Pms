@@ -337,7 +337,11 @@ function update_product($id, $update_product){
     return true;
 }
 
-
+function show_orders() {
+    $checkout_file = $GLOBALS['json_file_checkout'];
+ return file_exists($checkout_file) ? json_decode(file_get_contents($checkout_file), true) : [];
+ 
+}
 
 
 
