@@ -9,7 +9,7 @@
             <div class="col-12">
                 <?php if (empty(get_cart())): ?>
     <div class="alert alert-warning" role="alert">
-    Your Cart Is Empty Return To <a href="index.php" class="alert-link">Home</a> 
+    Your Cart Is Empty Return To <a href="index.php" class="alert-link ">Home</a> 
 </div>
 
 

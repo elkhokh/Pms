@@ -1,5 +1,3 @@
-
-
 <!-- Header-->
 
 
@@ -12,28 +10,30 @@
                 <div class="border p-2">
                     <div class="products">
                         <ul class="list-unstyled">
-                        <?php
-               
-                if (!empty(get_cart())){
-                    $total = 0;
-            foreach (get_cart() as $item){
-                $item_total = $item['price'] * $item['quantity'];
-                $total += $item_total;
-    
-                    echo " 
+                            <?php
+
+                            if (!empty(get_cart())) {
+                                $total = 0;
+                                foreach (get_cart() as $item) {
+                                    $item_total = $item['price'] * $item['quantity'];
+                                    $total += $item_total;
+
+                                    echo " 
     <li class='border p-2 my-1'> {$item['name']} -
-    <span class='text-success mx-2 mr-auto bold'>{$item['quantity']} x {$item['price'] }$  = {$item_total}$ </span>
+    <span class='text-success mx-2 mr-auto bold'>{$item['quantity']} x {$item['price']}$  = {$item_total}$ </span>
             </li>
                         "
-                        ; }}?>
+                                    ;
+                                }
+                            } ?>
                         </ul>
                     </div>
-                    <h3>Total : <?=$total?> $</h3>
+                    <h3>Total : <?= $total ?> $</h3>
                 </div>
-            </div> 
-            
+            </div>
+
             <div class="col-8">
-                <form action="handler/checkout/create.php" class="form border my-2 p-3 "method="post">
+                <form action="handler/checkout/create.php" class="form border my-2 p-3 " method="post">
                     <div class="mb-3">
                         <div class="mb-3">
                             <label for="">Name</label>

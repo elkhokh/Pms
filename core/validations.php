@@ -16,7 +16,7 @@ function valid_phone($phone)
    $phone =strlen($phone);
     return (is_numeric($phone)&& $phone>10 && $phone<15)?null:"can you enter your phone ture";
 }
-    function valid_password($password) 
+function valid_password($password) 
     {
         $uppercase = preg_match('/[A-Z]/', $password);
         $lowercase = preg_match('/[a-z]/', $password);
@@ -35,10 +35,22 @@ function valid_phone($phone)
                 return null;
         }
     }
-    function check_confirm_password_valid($password,$password_confirm)
+function check_confirm_password_valid($password,$password_confirm)
     {
         return ($password===$password_confirm)? null :"confirm Password is NOT the same Password";
     }
+
+function valid_price($price)
+{
+   $price =strlen($price);
+    return (is_numeric($price))?null:" enter price ture";
+}
+function valid_original_price($original_price)
+{
+   $original_price =strlen($original_price);
+    return (is_numeric($original_price))?null:" enter price ture";
+}
+
 
 /********************************validation of register function *********************************** */
 function valid_register($name,$email,$password,$password_confirm){       
@@ -136,5 +148,77 @@ function valid_checkout($name,$email,$phone,$address,$notes){
     }
     return null; 
 }
+
+/***************************adding product validation ************************************ */
+
+function valid_add_product($name, $price, $original_price,$rating, $image){
+    $products = [
+        'name' => htmlspecialchars($name),
+        'price' => htmlspecialchars($price),
+        'original_price' => htmlspecialchars($original_price),
+        'rating' => $rating,
+        'image' => $image,
+    ];
+    
+    foreach($products as $key =>$value)
+    {
+        if(valid_data_require($value,$key)){
+            return $type_of_error = valid_data_require($value,$key);
+        }
+    }
+    if( $type_of_error = valid_price($price))
+        {
+    return $type_of_error; 
+    }
+    if($type_of_error =  valid_original_price($original_price)){
+        return $type_of_error;  
+    }
+    return null; 
+}
+
+// function valid_add_product($name, $price, $original_price, $rating, $image) {
+//     $products = [
+//         'name' => htmlspecialchars($name),
+//         'price' => htmlspecialchars($price),
+//         'original_price' => htmlspecialchars($original_price),
+//         'rating' => $rating,
+//     ];
+
+//     foreach ($products as $key => $value) {
+//         if ($type_of_error = valid_data_require($value, $key)) {
+//             return $type_of_error;
+//         }
+//     }
+
+//     if ($type_of_error = valid_price($price)) {
+//         return $type_of_error;
+//     }
+
+//     if ($type_of_error = valid_original_price($original_price)) {
+//         return $type_of_error;
+//     }
+
+//     if (empty($image['name'])) {
+//         return "Image is required";
+//     }
+
+//     $file_ext = strtolower(pathinfo($image['name'], PATHINFO_EXTENSION));
+//     $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+//     if (!in_array($file_ext, $allowed_extensions)) {
+//         return "Only JPG, JPEG, PNG, and GIF files are allowed.";
+//     }
+
+//     if ($image['size'] > 5 * 1024 * 1024) {
+//         return "Image size must not exceed 5MB.";
+//     }
+
+//     if ($image['error'] !== UPLOAD_ERR_OK) {
+//         return "An error occurred while uploading the image.";
+//     }
+
+//     return null;
+// }
+
+
 ?>
 

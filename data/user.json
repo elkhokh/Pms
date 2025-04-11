@@ -262,5 +262,11 @@
         "name": "Mustafa Khalid abd elmonem elkhokh ",
         "email": "mustafaelkhokhy@gmail.com",
         "password": "$2y$10$XjCyI5oiAadp14FQtaOpCe2ZilI9ikxXXESFd4UZbVI70\/d3DBKMO"
+    },
+    {
+        "id": 45,
+        "name": "yahya weal",
+        "email": "yahaya@gmail.com",
+        "password": "$2y$10$VqQncdvzDLUgbiNgog5qKequi3xsb3pa3Yv5xgRYseqqWn.Q3nqcq"
     }
 ]
