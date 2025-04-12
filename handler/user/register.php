@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    if (register_user($name, $email, $hashed_password)) 
+    if (register_user($name, $email, $password)) 
     {
         set_messages('success', "User Registered Successfully");
         header("Location: ../../index.php");

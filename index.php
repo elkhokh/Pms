@@ -86,7 +86,7 @@ $products = get_products();
             </div>
             <?php endforeach; ?>
             <?php else: ?>
-            <p>No products available ِAdd Product In Product File Json</p>
+            <p>No products available ِAdd Product </p>
             <?php endif; ?>
         </div>
     </div>
