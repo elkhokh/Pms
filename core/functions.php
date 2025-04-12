@@ -81,6 +81,7 @@ function login_user($email,$password){
             //     'email'=>$email,
             //     'name'=>$user['name']
             // ]);
+            // session_start();
             $_SESSION['user'] = [
                 'name' => $user['name'],
                 'email' =>  $user['email']
