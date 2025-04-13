@@ -146,28 +146,38 @@ function set_cart(){
     }
     return true;
 }
-/******************************************** function add to cart **************************************** */
-function add_to_cart($Product_id,$name,$price, $quantity = 1) {
-    
-    $cart_file= $GLOBALS['json_file_cart'];
-    $carts=file_exists($cart_file) ? json_decode(file_get_contents($cart_file), true) : [];
-    if(!is_array($carts))
-    {
-     $carts = [];
-    }
-    $id = empty($carts) ? 1 : max(array_column($carts,'id')) + 1;
-        $product_in_cart= [
-            "id" => $id,
-            "Product_id"=>$Product_id,
-            "price" => $price,
-            "name" => $name,
-            "quantity" => $quantity
-        ];
 
-        $carts[] = $product_in_cart;
-        file_put_contents($cart_file, json_encode($carts, JSON_PRETTY_PRINT));
-        return true;
+/******************************************** function add to cart **************************************** */
+function add_to_cart($Product_id, $name, $price, $quantity = 1) {
+    $cart_file = $GLOBALS['json_file_cart'];
+    $carts = file_exists($cart_file) ? json_decode(file_get_contents($cart_file), true) : [];
+    
+    if (!is_array($carts)) {
+        $carts = [];
     }
+
+    foreach ($carts as &$cart) { 
+        if ($cart['Product_id'] == $Product_id) {
+            
+            $cart['quantity'] += $quantity;
+            file_put_contents($cart_file, json_encode($carts, JSON_PRETTY_PRINT));
+            return "updated"; 
+        }
+    }
+
+    $id = empty($carts) ? 1 : max(array_column($carts, 'id')) + 1;
+    $product_in_cart = [
+        "id" => $id,
+        "Product_id" => $Product_id,
+        "price" => $price,
+        "name" => $name,
+        "quantity" => $quantity
+    ];
+
+    $carts[] = $product_in_cart;
+    file_put_contents($cart_file, json_encode($carts, JSON_PRETTY_PRINT));
+    return "added"; 
+}
 
  /******************** function of edit quantity******************** */
 function update_item_from_cart($product_id, $update_quantity) {
@@ -344,7 +354,27 @@ function show_orders() {
 }
 
 
+/******************************************** function add to cart **************************************** */
 
+// function add_to_cart($Product_id,$name,$price, $quantity = 1) {
+//     $cart_file= $GLOBALS['json_file_cart'];
+//     $carts=file_exists($cart_file) ? json_decode(file_get_contents($cart_file), true) : [];
+//     if(!is_array($carts))
+//     {
+//      $carts = [];
+//     }
+//     $id = empty($carts) ? 1 : max(array_column($carts,'id')) + 1;
+//         $product_in_cart= [
+//             "id" => $id,
+//             "Product_id"=>$Product_id,
+//             "price" => $price,
+//             "name" => $name,
+//             "quantity" => $quantity
+//         ];
+//         $carts[] = $product_in_cart;
+//         file_put_contents($cart_file, json_encode($carts, JSON_PRETTY_PRINT));
+//         return true;
+//     }
 
 
 

@@ -8,7 +8,8 @@
                 <!-- Page Header -->
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h4 class="fw-bold text-primary"><i class="bi bi-cart-fill me-2"></i>Shopping Cart</h4>
-                    <a href="index.php" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left me-2"></i>Continue Shopping</a>
+                    <a href="index.php" class="btn btn-outline-secondary btn-sm"><i
+                            class="bi bi-arrow-left me-2"></i>Continue Shopping</a>
                 </div>
 
                 <?php if (empty(get_cart())): ?>
@@ -38,15 +39,18 @@
                                 foreach (get_cart() as $item):
                                     $item_total = $item['price'] * $item['quantity'];
                                     $total += $item_total;
-                                ?>
+                                    ?>
                                     <tr>
                                         <th scope="row" class="text-muted"><?= $index++; ?></th>
                                         <td class="fw-bold"><?= htmlspecialchars($item['name']); ?></td>
                                         <td class="text-success">$<?= number_format($item['price'], 2); ?></td>
                                         <td>
-                                            <form action="handler/cart/update.php" method="POST" class="d-flex align-items-center gap-2">
+                                            <form action="handler/cart/update.php" method="POST"
+                                                class="d-flex align-items-center gap-2">
                                                 <input type="hidden" name="id" value="<?= htmlspecialchars($item['id']); ?>">
-                                                <input type="number" name="quantity" value="<?= htmlspecialchars($item['quantity']); ?>" min="1" max="100" class="form-control form-control-sm" style="width: 80px;" required>
+                                                <input type="number" name="quantity"
+                                                    value="<?= htmlspecialchars($item['quantity']); ?>" min="1" max="100"
+                                                    class="form-control form-control-sm" style="width: 80px;" required>
                                                 <input type="hidden" name="update_quantity" value="1">
                                                 <button type="submit" class="btn btn-sm btn-success">
                                                     <i class="bi bi-arrow-repeat me-1"></i>Update
@@ -55,7 +59,8 @@
                                         </td>
                                         <td class="text-success fw-bold">$<?= number_format($item_total, 2); ?></td>
                                         <td>
-                                            <form action="handler/cart/delete.php" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                            <form action="handler/cart/delete.php" method="POST" class="d-inline"
+                                                onsubmit="return confirm('Are you sure you want to delete this item?');">
                                                 <input type="hidden" name="id" value="<?= htmlspecialchars($item['id']); ?>">
                                                 <button type="submit" class="btn btn-sm btn-outline-danger">
                                                     <i class="bi bi-trash-fill me-1"></i>Delete
